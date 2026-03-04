@@ -122,7 +122,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <p className="text-zinc-400 text-base font-medium">Mumbai, India</p>
+        <p className="text-zinc-400 text-base font-medium">Mumbai, India · Open to Remote</p>
       </div>
     </section>
   );

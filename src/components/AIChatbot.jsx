@@ -43,7 +43,7 @@ CONTACT:
 Email: sharmashekhar992@gmail.com
 LinkedIn: linkedin.com/in/sheksharma
 Website: https://shekhar-sharma-portfolio.vercel.app/
-Location: Mumbai, India
+Location: Mumbai, India · Open to Remote
 
 PROFESSIONAL SUMMARY:
 10 years of product management experience with 7 years at Deloitte building products for Fortune 500 clients across life sciences, retail, and healthcare sectors. Expert in GenAI/LLMs, Enterprise SaaS, Mobile Applications, and Regulated Healthcare (SAMD).
