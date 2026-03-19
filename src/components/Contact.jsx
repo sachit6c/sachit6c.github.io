@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Download, CheckCircle2, Target } from 'lucide-react';
+import { Mail, Linkedin, Github, Download, CheckCircle2, Target, Calendar } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -8,9 +8,23 @@ export default function Contact() {
           Let's connect
         </h2>
         
-        <p className="text-2xl sm:text-3xl text-zinc-400 mb-16 leading-relaxed">
+        <p className="text-2xl sm:text-3xl text-zinc-400 mb-8 leading-relaxed">
           Open to product leadership roles.
         </p>
+
+        {/* Calendly CTA - primary conversion action */}
+        <div className="mb-16">
+          <a
+            href="https://calendly.com/sheksharma"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-emerald-500 text-black rounded-full text-lg font-semibold hover:bg-emerald-400 transition-smooth hover:scale-[1.02] shadow-lg shadow-emerald-500/20"
+          >
+            <Calendar size={22} />
+            Book a 30-min intro call
+          </a>
+          <p className="text-zinc-500 text-sm mt-3">No email back-and-forth. Pick a time that works for you.</p>
+        </div>
 
         {/* Ideal Next Role Section */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 sm:p-12 mb-20 text-left max-w-3xl mx-auto">

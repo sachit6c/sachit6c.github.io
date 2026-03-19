@@ -11,6 +11,7 @@ export default function Navigation() {
     { href: '#about', label: 'Experience', homeOnly: true },
     { href: '#case-studies', label: 'Case Studies', homeOnly: true },
     { href: '#product', label: 'Projects', homeOnly: true },
+    { href: '#builds', label: 'Builds', homeOnly: true },
     { href: '#contact', label: 'Contact', homeOnly: true },
   ];
 

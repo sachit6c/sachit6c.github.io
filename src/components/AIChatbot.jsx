@@ -144,31 +144,9 @@ Bachelor of Engineering - Information Technology, Mumbai
     setIsLoading(true);
 
     try {
-      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
-      
-      console.log('🔍 Debug - API Key exists:', !!apiKey);
-      console.log('🔍 Debug - API Key length:', apiKey?.length || 0);
-      
-      if (!apiKey) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: 'assistant',
-            content: "⚠️ AI features are currently disabled. The Groq API key hasn't been configured. However, I can still share that Shekhar is a Senior PM at Deloitte with 10 years of experience building products for Fortune 500 clients. Check out his full experience above!",
-          },
-        ]);
-        setIsLoading(false);
-        return;
-      }
-
-      console.log('🚀 Sending request to Groq API...');
-      
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           messages: [
@@ -179,36 +157,25 @@ Bachelor of Engineering - Information Technology, Mumbai
             ...messages.filter((m) => m.role !== 'assistant' || m.content !== initialMessages[0].content),
             userMessage,
           ],
-          temperature: 0.7,
-          max_tokens: 200,
         }),
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('❌ API Error:', response.status, errorData);
-        throw new Error(`API request failed: ${response.status}`);
+        throw new Error(`Request failed: ${response.status}`);
       }
 
       const data = await response.json();
-      console.log('✅ Got response from Groq!', data);
-      
       const assistantMessage = {
         role: 'assistant',
         content: data.choices[0].message.content,
       };
-
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      console.error('Chat error:', error);
-      
-      // Show detailed error in UI for debugging
-      const errorMessage = error.message || 'Unknown error';
       setMessages((prev) => [
         ...prev,
         {
           role: 'assistant',
-          content: `🔧 Debug Error: ${errorMessage}. Check console for details. Using Groq API with model: llama-3.3-70b-versatile`,
+          content: "I'm having trouble connecting right now. Check out Shekhar's case studies above, or reach out directly at sharmashekhar992@gmail.com!",
         },
       ]);
     } finally {
@@ -239,26 +206,9 @@ Bachelor of Engineering - Information Technology, Mumbai
     setIsLoading(true);
 
     try {
-      const apiKey = import.meta.env.VITE_GROQ_API_KEY;
-      
-      if (!apiKey) {
-        setMessages((prev) => [
-          ...prev,
-          {
-            role: 'assistant',
-            content: "⚠️ AI features are currently disabled. The Groq API key hasn't been configured. However, I can still share that Shekhar is a Senior PM at Deloitte with 10 years of experience building products for Fortune 500 clients. Check out his full experience above!",
-          },
-        ]);
-        setIsLoading(false);
-        return;
-      }
-
-      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      const response = await fetch('/api/chat', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${apiKey}`,
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           messages: [
@@ -269,15 +219,11 @@ Bachelor of Engineering - Information Technology, Mumbai
             ...messages.filter((m) => m.role !== 'assistant' || m.content !== initialMessages[0].content),
             userMessage,
           ],
-          temperature: 0.7,
-          max_tokens: 200,
         }),
       });
 
       if (!response.ok) {
-        const errorData = await response.json().catch(() => ({}));
-        console.error('❌ API Error:', response.status, errorData);
-        throw new Error(`API request failed: ${response.status}`);
+        throw new Error(`Request failed: ${response.status}`);
       }
 
       const data = await response.json();
@@ -289,12 +235,11 @@ Bachelor of Engineering - Information Technology, Mumbai
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      console.error('Chat error:', error);
       setMessages((prev) => [
         ...prev,
         {
           role: 'assistant',
-          content: "Sorry, I'm having trouble connecting right now. But feel free to check out Shekhar's LinkedIn or reach out directly!",
+          content: "I'm having trouble connecting right now. Check out Shekhar's case studies above, or reach out directly at sharmashekhar992@gmail.com!",
         },
       ]);
     } finally {

@@ -1,9 +1,29 @@
 export default function Impact() {
   const metrics = [
-    { value: '12h → 6h', label: 'Research Time', sub: 'GenAI query-to-insight' },
-    { value: '8 weeks', label: 'vs 24-week target', sub: '3,000 users onboarded' },
-    { value: '500+', label: 'Researchers', sub: '40% active growth' },
-    { value: '$200K', label: 'Funding Secured', sub: 'Rapid prototyping' },
+    {
+      value: '12h → 6h',
+      label: 'Research Time Cut',
+      context: 'Researchers could run twice as many experiments per day — a half-day task became a morning activity.',
+      domain: 'GenAI Platform · Life Sciences',
+    },
+    {
+      value: '3x faster',
+      label: 'Patient Onboarding',
+      context: '3,000 patients onboarded in 8 weeks vs. a 24-week target — avoiding a $2M contract penalty.',
+      domain: 'Healthcare SAMD · FDA Regulated',
+    },
+    {
+      value: '40x',
+      label: 'Platform Adoption',
+      context: 'Grew from 5 to 200 active researchers in 18 months across 3 divisions — without a single marketing campaign.',
+      domain: 'GenAI Platform · Organic Growth',
+    },
+    {
+      value: '3 weeks',
+      label: 'Zero-to-SaaS',
+      context: 'Shipped a working SaaS product independently using AI as a co-developer — no PRDs, no agency, no team.',
+      domain: 'Smart Release Planner · Side Project',
+    },
   ];
 
   return (
@@ -18,12 +38,18 @@ export default function Impact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {metrics.map((metric, idx) => (
-            <div key={idx} className="text-center">
-              <p className="text-5xl lg:text-6xl font-semibold text-white mb-3">{metric.value}</p>
-              <p className="text-xl font-semibold text-zinc-300 mb-2">{metric.label}</p>
-              <p className="text-base text-zinc-400 font-medium">{metric.sub}</p>
+            <div
+              key={idx}
+              className="bg-zinc-950 border border-zinc-800/60 rounded-2xl p-6 flex flex-col gap-3"
+            >
+              <p className="text-4xl lg:text-5xl font-semibold text-white leading-none">{metric.value}</p>
+              <p className="text-base font-semibold text-zinc-200">{metric.label}</p>
+              <p className="text-sm text-zinc-400 leading-relaxed flex-1">{metric.context}</p>
+              <p className="text-xs text-zinc-600 font-medium uppercase tracking-wider pt-2 border-t border-zinc-800/60">
+                {metric.domain}
+              </p>
             </div>
           ))}
         </div>

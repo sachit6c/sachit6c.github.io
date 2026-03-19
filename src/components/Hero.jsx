@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Calendar, Sparkles } from 'lucide-react';
 
 export default function Hero() {
   return (
@@ -48,7 +48,7 @@ export default function Hero() {
             <span className="text-white">10 years building for Fortune 500 across healthcare, retail, and life sciences.</span>
           </p>
 
-          {/* Clean CTAs - Apple style */}
+          {/* CTAs - primary + Calendly */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
             <a
               href="#about"
@@ -56,6 +56,15 @@ export default function Hero() {
             >
               View my work
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="https://calendly.com/sheksharma"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-10 py-5 bg-transparent border-2 border-emerald-700 text-emerald-400 rounded-full text-lg font-semibold hover:border-emerald-500 hover:bg-emerald-900/20 transition-smooth hover:scale-[1.02]"
+            >
+              <Calendar size={20} />
+              Book a 30-min intro
             </a>
             <a
               href="#contact"
