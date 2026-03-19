@@ -8,11 +8,10 @@ export default function Navigation() {
   const isHomePage = location.pathname === '/';
 
   const navLinks = [
-    { href: '#about', label: 'Experience', homeOnly: true },
-    { href: '#case-studies', label: 'Case Studies', homeOnly: true },
-    { href: '#product', label: 'Projects', homeOnly: true },
-    { href: '#builds', label: 'Builds', homeOnly: true },
-    { href: '#contact', label: 'Contact', homeOnly: true },
+    { href: '#product', label: 'Work' },
+    { href: '#case-studies', label: 'Case Studies' },
+    { href: '#about', label: 'About' },
+    { href: '#contact', label: 'Contact' },
   ];
 
   const handleNavClick = (href) => {
