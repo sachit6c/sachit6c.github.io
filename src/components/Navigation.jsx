@@ -6,6 +6,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const clickLock = useRef(false);
+  const computeActiveRef = useRef(null);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -17,17 +18,24 @@ export default function Navigation() {
   ];
 
   // Scroll-position approach: whichever section's top is at or above the
-  // trigger line (nav height + small buffer) is the current active section.
+  // trigger line (nav height + buffer) is the current active section.
   // We pick the LAST one that satisfies this — i.e. the one furthest down
   // the page that the user has already scrolled past.
   useEffect(() => {
     if (!isHomePage) return;
 
     const NAV_H = 56; // matches h-14
-    const BUFFER = 32;
+    const BUFFER = 120; // generous buffer to absorb scroll-margin-top (96px) + inertia
 
-    const onScroll = () => {
-      if (clickLock.current) return; // don't fight the click-set active
+    const computeActive = () => {
+      // Near-bottom guard: when scrolled to the bottom of the page the last
+      // section's heading may never cross the trigger — force it active.
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollableHeight > 0 && window.scrollY >= scrollableHeight - 50) {
+        setActiveSection(navLinks[navLinks.length - 1].id);
+        return;
+      }
 
       const trigger = window.scrollY + NAV_H + BUFFER;
       let current = '';
@@ -42,18 +50,45 @@ export default function Navigation() {
       setActiveSection(current);
     };
 
+    // Expose so click handlers can trigger a re-evaluation after scroll ends.
+    computeActiveRef.current = computeActive;
+
+    const onScroll = () => {
+      if (clickLock.current) return; // don't fight the click-set active
+      computeActive();
+    };
+
     window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll(); // run once on mount
-    return () => window.removeEventListener('scroll', onScroll);
+    computeActive(); // run once on mount
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      computeActiveRef.current = null;
+    };
   }, [isHomePage]);
 
   const handleNavClick = (href, id) => {
     setIsOpen(false);
     setActiveSection(id);
 
-    // Lock scroll-based detection for 1.2 s while the smooth scroll completes
+    // Lock scroll-based detection until smooth scroll actually finishes.
+    // scrollend fires when the animation completes; the timeout is a fallback
+    // for browsers that dispatch a scroll event mid-animation after the lock
+    // would otherwise have expired with the old fixed 1.2 s approach.
     clickLock.current = true;
-    setTimeout(() => { clickLock.current = false; }, 1200);
+
+    const release = () => {
+      clickLock.current = false;
+      window.removeEventListener('scrollend', release);
+      // Re-evaluate at the final resting scroll position so any inertia/bounce
+      // that shifted the viewport after scrollend is corrected immediately.
+      requestAnimationFrame(() => {
+        if (computeActiveRef.current) computeActiveRef.current();
+      });
+    };
+
+    window.addEventListener('scrollend', release, { once: true });
+    // Fallback: 2.5 s covers even very long smooth-scroll distances
+    setTimeout(release, 2500);
 
     if (href.startsWith('#') && !isHomePage) {
       window.location.href = '/' + href;
