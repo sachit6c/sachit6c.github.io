@@ -37,81 +37,98 @@ export default function AIChatbot() {
   }, [isOpen]);
 
   const resumeContext = `
-SACHIT SHARMA - Senior Consultant / Delivery Lead / Product Owner
+SACHIT SHARMA - Onsite Delivery Lead / Senior Product Manager / Product Owner
 
 CONTACT:
-Email: sachit.sharma@hotmail.com
+Email: work.sachitsharma@gmail.com
 LinkedIn: linkedin.com/in/ssachit
 GitHub: github.com/sachit6c
 Location: New York, NY · Open to Hybrid
 
 PROFESSIONAL SUMMARY:
-8 years at Deloitte Consulting LLP serving as Senior Consultant, Delivery Lead, and Product Owner across Fortune 500 clients in financial services, healthcare, and life sciences. Expert in large-scale program delivery, GenAI product ownership, SAFe Agile, and stakeholder management.
+Hybrid Technology Product & Program Manager with 8+ years at Deloitte Consulting LLP delivering large-scale digital transformation programs in financial services and enterprise tech. Combines hands-on Scrum team leadership — managing 26+ squads, facilitating PI planning, and serving as Scrum Master — with strategic product ownership across roadmapping, OKRs, backlog management, and release strategy. PMP, CSPO, and SAFe certified. Proven track record across fintech (FIS / T. Rowe Price), pharma, and healthcare clients.
 
-KEY ACHIEVEMENTS:
-- Onsite Delivery Lead for 26 squads (185 members, 335K budgeted hours) — 91% on-time delivery across 3 PI cycles
-- Secured $1.75M SOW extension; instrumental in signing 2 RFPs worth $700K
-- Won a competitive bid over AWS vendor by identifying overlooked critical issues
-- Led 2 high-performing pods delivering 11 major releases across 16 sprints — tripling the client user base
-- Recognized by MD of Consulting as "most visible team in the Pfizer program"
-- Implemented Jira automation eliminating 20+ hours/week of manual work
-- Built cross-pod integration templates saving 1,200+ person-hours annually
-- Increased team velocity 15% at Eli Lilly through Agile coaching and retrospective facilitation
-- 319% user growth across 6 mobile releases
+KEY METRICS:
+- 26 squads / 185 members managed simultaneously
+- 335,000-hour resource budget managed (PlanView)
+- 91% on-time PI delivery rate across 3 PI cycles
+- 8,966+ story points delivered across 73 deployments
+- $2.45M+ revenue influenced (SOW extensions + RFP wins)
+- 175% process efficiency gain; meetings cut to <9 min
+- 20+ hours/week manual work eliminated via Jira automation
+- 319% user growth (Lilly mobile) · 3x user growth (Pfizer)
 
-GENAI PRODUCT OWNERSHIP (Pfizer):
-- Served as PO across multiple Gen AI pods simultaneously
-- Managed backlogs for LLM-powered market intelligence and pre-opportunity identification tools
-- Defined acceptance criteria for non-deterministic Gen AI outputs
-- Aligned cross-geography stakeholders (US and Greece) on AI product priorities and evaluation standards
-- Bridged business users and data science teams to translate LLM model capabilities into user-facing features
-- Managed backlog across data ingestion, model, and inference layers
+EXPERIENCE:
 
-DELIVERY LEADERSHIP (TRP/FIS Program):
-- Onsite Delivery Lead for 26 squads, 185 members, 335K budgeted hours
-- Orchestrated 3 PI planning cycles with 91% on-time delivery
-- Designed hours-estimation methodology correcting a 30% underestimation
-- Led OKR development, mid-PI reviews, and value stream modeling
+Onsite Delivery Lead / Senior Product Manager — T. Rowe Price & FIS
+Deloitte Consulting LLP | New York, NY | 2025 – Present
+- Orchestrated 3 complete PI planning cycles for 26 agile squads (185 members), achieving 91% on-time story completion across 8,966+ story points and 73 production deployments
+- Facilitated quarterly Product Delivery meetings and Product Strategy sessions between TRP and FIS, establishing a prioritized 3–12 month roadmap aligned to business priorities
+- Led OKR development and mid-PI reviews, creating a value stream model mapping all 26 squads to journey, platform, and ops teams
+- Finalized 2026 team structure for 185 members with a 335,000-hour resource budget in PlanView; designed hours-estimation methodology correcting a 30% underestimation
 - Developed PI mitigation plans — identifying and escalating 4 critical dependencies early
-- Facilitated quarterly Product Delivery meetings and client Product Strategy sessions
+- Implemented Jira automation eliminating 20+ hours/week of manual PM/PO work; improved data accuracy by 40%
+- Contributed to a $1.75M SOW extension for 2026
 
-AGILE COACHING & PRODUCT OWNERSHIP (Eli Lilly):
-- Product Owner and Agile coach across 3 concurrent projects
-- Increased team velocity by 15% through retrospective facilitation and burndown transparency
-- Facilitated bug-bash sessions surfacing 6 defects and 2 change requests pre-release
+Product Owner / Delivery Lead — Pfizer Inc. (Generative AI Program)
+Deloitte Consulting LLP | New Delhi, India | Nov 2023 – Jun 2024
+- Served as PO across multiple Gen AI pods simultaneously; managed backlogs for LLM-powered Market Competitive Intelligence and Pre-Opportunity Identification tools
+- Defined acceptance criteria for non-deterministic LLM outputs, enabling reliable release cycles in an ambiguous AI environment
+- Coordinated cross-geography stakeholders (POs in Greece; business users and data scientists in the US)
+- Bridged business users and data science teams across data ingestion, model, and inference layers
+
+Product Owner / Delivery Lead — Pfizer Inc. (Enterprise Digital Program)
+Deloitte Consulting LLP | New Delhi, India | 2023 – 2024
+- Signed 2 RFPs worth $700K, securing 3 quarters of pipeline; won a 2-quarter engagement over a competing AWS vendor
+- Led 2 cross-functional pods through 11 major releases across 16 sprints, tripling the client user base
+- Recognized by the MD of Consulting as the "most visible team in the Pfizer program"
+- Received 2 Applause Awards for strategic excellence and proactive identification of scope creep
+
+Scrum Master / Functional Team Lead / Product Owner — Eli Lilly & Co.
+Deloitte Consulting LLP | India | Nov 2019 – Nov 2023
+- Increased team velocity by 15% through Agile coaching, retrospective facilitation, and burndown transparency
+- Orchestrated 15 sprints across iOS and Android, culminating in the launches of ConLog, LillyPlus & Snapshare — client called ConLog 'the best app they had ever encountered'
+- Drove 319% user growth across 6 releases on multiple mobile platforms, including a client-record two-week release cycle
+- Received Applause Award for before-time simultaneous release of 2 MVPs
+
+Business Analyst — HPE, AT&T, Chevron
+Deloitte Consulting LLP | Bengaluru, India | Aug 2018 – Nov 2019
 
 SIDE PROJECTS:
-1. F1 Fantasy League (https://f1-fantasy-v1.vercel.app/)
+1. Partner Pomodoro (https://rich-pomodoro.vercel.app/)
+   - Two-user collaborative Pomodoro timer with real-time sync via Supabase WebSocket subscriptions
+   - No login required; partners identified by name; Supabase RLS governing data access
+   - Wall-clock-based timer (Date.now() diffing at 250ms polls) to eliminate setInterval drift
+   - Completion chimes synthesized with Web Audio API; native OS notifications
+
+2. F1 Fantasy League (https://f1-fantasy-v1.vercel.app/)
    - Full-stack fantasy F1 with head-to-head snake drafts
    - Configurable points engine: position, pole, sprint, fastest lap, penalties
    - 27 seasons (2000-2026) of historical race data
    - 80%+ unit test coverage (Vitest) + Playwright E2E suites
-   - Offline-first CSV data model with Ergast/OpenF1 API fallback
 
-2. 64Squares — Chess Fantasy League (https://chess-fantasy.vercel.app/)
+3. 64Squares — Chess Fantasy League (https://chess-fantasy.vercel.app/)
    - Real-time scoring via 30-second Lichess Broadcasts PGN polling
    - Supabase PostgreSQL with RLS security policies
    - Fuzzy player name matching for 1000+ titled players (Chess.com + FIDE)
-   - In-app PGN game viewer (chess.js + cm-chessboard)
    - Python data pipeline for player fetching, seeding, and tournament management
 
 SKILLS & EXPERTISE:
-- Program Delivery: PI Planning, OKR Development, Risk Management, Stakeholder Management, Value Stream Mapping
-- Product Ownership: Backlog Management, Acceptance Criteria, User Story Writing, Sprint Planning, Roadmapping
-- GenAI/AI: LLM Product Ownership, Non-deterministic Output ACs, RAG, Prompt Engineering, AI Product Strategy
-- Agile: SAFe Agile, Scrum, Kanban, Agile Coaching, Retrospective Facilitation
-- Tools: Jira, Confluence, Figma, Miro, Tableau, Power BI, SQL, Azure DevOps, Salesforce
-- Tech (Side Projects): React, TypeScript, Supabase, PostgreSQL, Vitest, Playwright, Python
-
-DOMAIN EXPERIENCE:
-Financial Services, Healthcare, Life Sciences, Pharma, Retail, Insurance
+- Program & Project Management: SAFe / PI Planning, Agile at Scale, Scrum Team Leadership, Risk & Dependency Management, Capacity Planning, Resource Allocation (PlanView), OKR Facilitation, Release Management
+- Product Management: Product Roadmapping, Backlog Management, User Stories & Acceptance Criteria, Stakeholder Alignment, Go-to-Market, Value Stream Mapping, KPI Definition, Business Case Development
+- Tools: Jira, Confluence, Aha!, Figma, Miro, Azure DevOps, SQL, Tableau, Power BI, Salesforce, ServiceNow
+- Domains: Financial Services, Fintech, Enterprise Digital Transformation, Healthcare & Life Sciences, Generative AI / LLM Products, Mobile (iOS / Android), SaaS / Platform Products
+- Leadership: Cross-functional Team Management, Executive Communication, Scrum Coaching, Vendor Management, Change Management, Budget & P&L Oversight
 
 CERTIFICATIONS:
-- Certified SAFe® 6 Agilist
-- Certified Scrum Product Owner (CSPO)
+- Claude 101 — Anthropic (2026)
+- AI Fluency: Framework & Foundations — Anthropic (2026)
+- SAFe 5 Agilist (SA) — Scaled Agile (2021)
+- Certified Scrum Product Owner (CSPO) — Scrum Alliance (2020)
+- Project Management Professional (PMP) — PMI (2019)
 
 EDUCATION:
-Bachelor of Technology, Electronics & Instrumentation Control Engineering
+Bachelor of Technology — Electronics & Instrumentation Control Engineering
 Thapar University, 2018
 `;
 
@@ -154,7 +171,7 @@ Thapar University, 2018
           messages: [
             {
               role: 'system',
-              content: `You are a helpful AI assistant representing Shekhar Sharma's portfolio. Answer questions about his professional experience, skills, and achievements based on the following resume information. Be conversational, enthusiastic, and highlight his strengths. Keep responses concise (2-4 sentences) and factual based on the resume. If asked about something not in the resume, politely say you don't have that information but redirect to what you do know.\n\nResume Data:\n${resumeContext}`,
+              content: `You are a helpful AI assistant representing Sachit Sharma's portfolio. Answer questions about his professional experience, skills, and achievements based on the following resume information. Be conversational, enthusiastic, and highlight his strengths. Keep responses concise (2-4 sentences) and factual based on the resume. If asked about something not in the resume, politely say you don't have that information but redirect to what you do know.\n\nResume Data:\n${resumeContext}`,
             },
             ...messages.filter((m) => m.role !== 'assistant' || m.content !== initialMessages[0].content),
             userMessage,
@@ -177,7 +194,7 @@ Thapar University, 2018
         ...prev,
         {
           role: 'assistant',
-          content: "I'm having trouble connecting right now. Check out Shekhar's case studies above, or reach out directly at sharmashekhar992@gmail.com!",
+          content: "I'm having trouble connecting right now. Check out Sachit's case studies above, or reach out directly at work.sachitsharma@gmail.com",
         },
       ]);
     } finally {
@@ -192,7 +209,7 @@ Thapar University, 2018
     if (question === "Download resume") {
       const link = document.createElement('a');
       link.href = '/resume.pdf';
-      link.download = 'Sachit_Sharma_Resume.pdf';
+      link.download = 'Sachit-Sharma-pm-resume.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -216,7 +233,7 @@ Thapar University, 2018
           messages: [
             {
               role: 'system',
-              content: `You are a helpful AI assistant representing Shekhar Sharma's portfolio. Answer questions about his professional experience, skills, and achievements based on the following resume information. Be conversational, enthusiastic, and highlight his strengths. Keep responses concise (2-4 sentences) and factual based on the resume. If asked about something not in the resume, politely say you don't have that information but redirect to what you do know.\n\nResume Data:\n${resumeContext}`,
+              content: `You are a helpful AI assistant representing Sachit Sharma's portfolio. Answer questions about his professional experience, skills, and achievements based on the following resume information. Be conversational, enthusiastic, and highlight his strengths. Keep responses concise (2-4 sentences) and factual based on the resume. If asked about something not in the resume, politely say you don't have that information but redirect to what you do know.\n\nResume Data:\n${resumeContext}`,
             },
             ...messages.filter((m) => m.role !== 'assistant' || m.content !== initialMessages[0].content),
             userMessage,
@@ -241,7 +258,7 @@ Thapar University, 2018
         ...prev,
         {
           role: 'assistant',
-          content: "I'm having trouble connecting right now. Check out Shekhar's case studies above, or reach out directly at sharmashekhar992@gmail.com!",
+          content: "I'm having trouble connecting right now. Check out Sachit's case studies above, or reach out directly at work.sachitsharma@gmail.com",
         },
       ]);
     } finally {

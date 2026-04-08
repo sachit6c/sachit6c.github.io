@@ -12,6 +12,7 @@ export default function Navigation() {
 
   const navLinks = [
     { href: '#product', label: 'Work', id: 'product' },
+    { href: '#experience', label: 'Experience', id: 'experience' },
     { href: '#case-studies', label: 'Case Studies', id: 'case-studies' },
     { href: '#about', label: 'About', id: 'about' },
     { href: '#contact', label: 'Contact', id: 'contact' },
@@ -25,8 +26,34 @@ export default function Navigation() {
   // including short last sections (Contact) where scroll-position math
   // can fail because the page can't scroll far enough for the section
   // top to cross an arbitrary trigger line.
-  const getActiveFromVisible = () =>
-    sectionOrder.filter((id) => visibleSectionsRef.current.has(id)).at(-1) ?? '';
+  const getActiveFromVisible = () => {
+    const visible = sectionOrder.filter((id) => visibleSectionsRef.current.has(id));
+    if (visible.length === 0) return '';
+    if (visible.length === 1) return visible[0];
+    // When multiple sections are simultaneously in the observation window (most common
+    // when two adjacent short sections overlap at the bottom), pick the one whose top
+    // is closest to the nav bar — meaning we're most "in" that section.
+    const NAV_H = 56;
+    return visible.reduce((best, id) => {
+      const el = document.getElementById(id);
+      const bestEl = document.getElementById(best);
+      if (!el) return best;
+      if (!bestEl) return id;
+      const top = el.getBoundingClientRect().top;
+      const bestTop = bestEl.getBoundingClientRect().top;
+      const pastNav = top < NAV_H;       // true = section top has scrolled above nav
+      const bestPastNav = bestTop < NAV_H;
+      // Prefer whichever section's top has most recently crossed (or is closest to) the nav
+      if (pastNav && !bestPastNav) return id;
+      if (!pastNav && bestPastNav) return best;
+      if (pastNav && bestPastNav) {
+        // Both above nav: pick the one closer to nav (most recently crossed = least negative)
+        return (top - NAV_H) > (bestTop - NAV_H) ? id : best;
+      }
+      // Neither above nav yet: pick the closer one (soonest to enter)
+      return Math.abs(top - NAV_H) < Math.abs(bestTop - NAV_H) ? id : best;
+    });
+  };
 
   useEffect(() => {
     if (!isHomePage) return;

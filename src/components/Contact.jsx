@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Download, CheckCircle2, Target } from 'lucide-react';
+import { Calendar, Linkedin, Github, Download, CheckCircle2, Target } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -80,11 +80,13 @@ export default function Contact() {
         {/* Contact Links */}
         <div className="flex flex-wrap gap-4 justify-center mb-20">
           <a
-            href="mailto:sachit.sharma@hotmail.com"
+            href="https://calendly.com/work-sachitsharma/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-zinc-100 transition-smooth hover:scale-[1.02]"
           >
-            <Mail size={18} />
-            Email me
+            <Calendar size={18} />
+            Schedule an intro
           </a>
 
           <a
@@ -109,7 +111,7 @@ export default function Contact() {
 
           <a
             href="/resume.pdf"
-            download
+            download="Sachit-Sharma-pm-resume.pdf"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-800 transition-smooth hover:scale-[1.02]"
           >
             <Download size={18} />

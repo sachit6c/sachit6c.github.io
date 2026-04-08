@@ -35,6 +35,21 @@ const SideBuilds = () => {
       links: { live: 'https://f1-fantasy-v1.vercel.app/', github: null },
       status: 'Live',
     },
+    {
+      id: 'partner-pomodoro',
+      title: 'Partner Pomodoro',
+      context: 'Personal — Productivity & Real-Time Collaboration',
+      description:
+        'A two-user collaborative Pomodoro timer with real-time sync via Supabase WebSocket subscriptions — no accounts required. Partners join by name, stay in sync live, and get completion alerts via synthesized Web Audio API chimes and native OS notifications.',
+      stack: ['React', 'Supabase Realtime', 'Web Audio API', 'Notifications API', 'CSS clamp()'],
+      learnings: [
+        'Designing for zero sign-up friction (name-only onboarding with Supabase RLS row isolation per partner) taught me that the biggest UX barrier is often the first step — every auth field you remove is a reason to stay.',
+        'Replacing setInterval with wall-clock diffing (Date.now() at 250ms polls) after discovering background tab throttling showed me that platform behavior is a product constraint, not a dev bug — and that timing bugs are invisible until production.',
+      ],
+      gradient: 'from-teal-400 to-emerald-500',
+      links: { live: 'https://rich-pomodoro.vercel.app/', github: null },
+      status: 'Live',
+    },
   ]
 
   return (

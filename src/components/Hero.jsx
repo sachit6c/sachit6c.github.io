@@ -1,4 +1,4 @@
-import { ArrowRight, Mail, MapPin } from 'lucide-react';
+import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 
 export default function Hero() {
   const metrics = [
@@ -21,7 +21,7 @@ export default function Hero() {
           <div className="relative">
             <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-zinc-700/60 shadow-2xl">
               <img
-                src="/profile-photo.jpg"
+                src="/profile-photo.png"
                 alt="Sachit Sharma"
                 className="w-full h-full object-cover"
                 width="144"
@@ -69,11 +69,13 @@ export default function Hero() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="mailto:sachit.sharma@hotmail.com"
+            href="https://calendly.com/work-sachitsharma/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-transparent border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-900/50 transition-smooth hover:scale-[1.02]"
           >
-            <Mail size={16} />
-            Get in touch
+            <Calendar size={16} />
+            Schedule an intro
           </a>
         </div>
 

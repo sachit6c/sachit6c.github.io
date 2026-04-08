@@ -4,7 +4,7 @@ import About from './About'
 import CaseStudies from './CaseStudies'
 import Product from './Product'
 import SideBuilds from './SideBuilds'
-import Impact from './Impact'
+import Experience from './Experience'
 import Contact from './Contact'
 import Footer from './Footer'
 import AppFloater from './AppFloater'
@@ -23,7 +23,7 @@ const HomePage = () => {
       <Hero />
       <Product />
       <SideBuilds />
-      <Impact />
+      <Experience />
       <CaseStudies />
       <About />
       <Contact />

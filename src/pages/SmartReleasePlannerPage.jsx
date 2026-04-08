@@ -174,14 +174,6 @@ export default function SmartReleasePlannerPage() {
               Try it live
               <ExternalLink size={14} />
             </a>
-            <a
-              href="https://github.com/shekhar992/smart-release-planner"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-500 transition-colors"
-            >
-              GitHub
-            </a>
           </div>
         </div>
       </div>
@@ -228,19 +220,10 @@ export default function SmartReleasePlannerPage() {
               Try it live
               <ExternalLink size={20} />
             </a>
-            <a
-              href="https://github.com/shekhar992/smart-release-planner"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-10 py-5 border-2 border-zinc-700 text-white rounded-full text-lg font-semibold hover:border-zinc-500 transition-colors"
-            >
-              <Github size={20} />
-              GitHub
-            </a>
           </div>
         </div>
 
-        {/* ── The Problem ── */}
+        {/* ── The Problem ── */
         <section className="mb-24">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10">The problem I was solving</h2>
           <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-8 mb-6">
@@ -421,15 +404,6 @@ export default function SmartReleasePlannerPage() {
             >
               Try Smart Release Planner
               <ExternalLink size={20} />
-            </a>
-            <a
-              href="https://github.com/shekhar992/smart-release-planner"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-10 py-5 border-2 border-zinc-700 text-white rounded-full text-lg font-semibold hover:border-zinc-500 transition-colors"
-            >
-              <Github size={20} />
-              View Source
             </a>
           </div>
           <Link
