@@ -1,11 +1,11 @@
-import { ArrowRight, Calendar, MapPin } from 'lucide-react';
+import { ArrowRight, Mail, MapPin } from 'lucide-react';
 
 export default function Hero() {
   const metrics = [
-    { value: '10 yrs', label: 'Fortune 500', sub: 'Healthcare, Retail, Life Sciences' },
-    { value: '40x', label: 'Platform Growth', sub: '5 → 200 users, 18 months' },
-    { value: '3 wks', label: 'Zero-to-SaaS', sub: 'Shipped independently with AI' },
-    { value: '$2M', label: 'Risk Prevented', sub: 'FDA penalty avoided' },
+    { value: '8+ yrs', label: 'Deloitte Consulting', sub: 'Financial Services, Healthcare, Pharma' },
+    { value: '26 squads', label: 'Program Scale', sub: '185 members, 3 PI cycles' },
+    { value: '91%', label: 'On-Time Delivery', sub: 'Across 3 consecutive PI cycles' },
+    { value: '$5M+', label: 'SOWs Won', sub: 'RFPs signed & competitive bids' },
   ];
 
   return (
@@ -22,7 +22,7 @@ export default function Hero() {
             <div className="w-36 h-36 rounded-full overflow-hidden border-2 border-zinc-700/60 shadow-2xl">
               <img
                 src="/profile-photo.jpg"
-                alt="Shekhar Sharma"
+                alt="Sachit Sharma"
                 className="w-full h-full object-cover"
                 width="144"
                 height="144"
@@ -42,21 +42,21 @@ export default function Hero() {
         </div>
 
         {/* Name label */}
-        <p className="text-zinc-500 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Shekhar Sharma</p>
+        <p className="text-zinc-500 text-xs font-semibold tracking-[0.2em] uppercase mb-4">Sachit Sharma</p>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.07] tracking-tight mb-6">
-          <span className="text-white">Curious Visionary.</span>
+          <span className="text-white">Delivery Driver.</span>
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Fast Builder.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Systems Thinker.</span>
           <br />
-          <span className="text-zinc-500">Deep Thinker.</span>
+          <span className="text-zinc-500">After-Hours Builder.</span>
         </h1>
 
         {/* Subtext */}
         <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-8">
-          Product Manager using AI to ship faster — from rapid prototypes to production scale.<br className="hidden sm:block" />
-          10 years building for Fortune 500 across healthcare, retail, and life sciences.
+          Senior Consultant &amp; Delivery Lead shipping products for Fortune 500 clients at Deloitte.<br className="hidden sm:block" />
+          Building F1 fantasy leagues and chess apps after hours.
         </p>
 
         {/* CTAs */}
@@ -69,13 +69,11 @@ export default function Hero() {
             <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a
-            href="https://calendly.com/sharmashekhar992/30min"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:sachit.sharma@hotmail.com"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-transparent border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-900/50 transition-smooth hover:scale-[1.02]"
           >
-            <Calendar size={16} />
-            Book a 30-min intro
+            <Mail size={16} />
+            Get in touch
           </a>
         </div>
 
@@ -95,7 +93,7 @@ export default function Hero() {
         {/* Location */}
         <div className="flex items-center justify-center gap-1.5 text-zinc-600 text-xs py-3 -mx-6 sm:-mx-8 lg:-mx-12 border-b border-zinc-800/40">
           <MapPin size={11} />
-          <span>Mumbai, India · Open to Remote</span>
+          <span>New York, NY · Open to Hybrid</span>
         </div>
 
       </div>

@@ -6,48 +6,33 @@ const SideBuilds = () => {
   const [cardsRef, cardsVisible] = useScrollAnimation()
   const builds = [
     {
-      id: 'pawan-portfolio',
-      title: "Pawan Raj's Portfolio",
-      context: 'Personal — Friend (Events & Brand Marketing)',
+      id: '64squares',
+      title: '64Squares — Chess Fantasy League',
+      context: 'Personal — Chess & Fantasy Sports',
       description:
-        "A career story told as a product — translating 7+ years at Nestlé, Abbott & Hershey's into a compelling, self-sustaining portfolio site.",
-      stack: ['React 18', 'Vite', 'Tailwind CSS', 'React Router v7'],
+        'Real-time chess fantasy league with live scoring powered by 30-second Lichess Broadcasts PGN polling. Draft players, track results, compete in leagues.',
+      stack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'chess.js', 'Python'],
       learnings: [
-        "Translating someone else's career story — not your own — forces ruthless content hierarchy decisions. You can't default to 'add everything.'",
-        'Scoped for zero post-handoff maintenance: no CMS, no server, static by design. Ship and forget was the feature.',
+        'Fuzzy player name matching across 1000+ titled players (Chess.com + FIDE ratings) taught me that data quality is a product problem, not an engineering problem.',
+        'Two user types (commissioner managing leagues vs. players tracking scores) from one data model forced explicit permission boundaries from day one — helped me think more carefully about role-based access design.',
       ],
-      gradient: 'from-violet-500 to-indigo-500',
-      links: { live: 'https://pawan-raj-portfolio-tan.vercel.app/', github: null },
+      gradient: 'from-indigo-500 to-violet-500',
+      links: { live: 'https://chess-fantasy.vercel.app/', github: null },
       status: 'Live',
     },
     {
-      id: 'kdp-website',
-      title: 'Kreative Dream Productions',
-      context: 'Client — Full-service Event Marketing Agency',
+      id: 'f1-fantasy',
+      title: 'F1 Fantasy League',
+      context: 'Personal — Formula 1 & Fantasy Sports',
       description:
-        'Corporate web presence for a multi-country event agency spanning India, UAE, Thailand, and Canada — with a production-grade contact flow.',
-      stack: ['Next.js 14', 'TypeScript', 'Framer Motion', 'Zod', 'Resend'],
+        '27 seasons (2000–2026) of historical race data, head-to-head snake drafts, and a fully configurable points engine for position, pole, sprint, fastest lap, and penalties.',
+      stack: ['React', 'TypeScript', 'Vitest', 'Playwright', 'Vercel'],
       learnings: [
-        'Multi-country B2B audience meant four simultaneous primary users — forced explicit stakeholder priority ordering before writing a line of code.',
-        'Built contact infrastructure with Zod validation and Resend email early — treating the form as a security boundary, not a design afterthought.',
+        'Building an offline-first CSV data model with dynamic season switching (DataStore.setSeason()) taught me to design for data-access patterns before writing any UI — the schema drove the product.',
+        '80%+ unit test coverage with Playwright E2E suites covering draft flow and mobile/tablet/desktop responsiveness showed me how investment in test infrastructure pays off in shipping confidence.',
       ],
-      gradient: 'from-orange-500 to-amber-500',
-      links: { live: 'https://kdp-website.vercel.app/', github: null },
-      status: 'Live',
-    },
-    {
-      id: 'todfod-arena',
-      title: 'TodFod Arena',
-      context: 'Internal — Company Culture & Games Platform',
-      description:
-        'Live game show platform for seasonal team competitions — host runs on a laptop projector, teams compete in real time on their phones.',
-      stack: ['React 19', 'TypeScript', 'Supabase Realtime', 'Radix UI'],
-      learnings: [
-        'Two simultaneous user types (host on projector + teams on phones) from one data model forced dual UX surface design from day one.',
-        'Supabase Realtime latency constraints directly influenced round timer UX — technical architecture and product decisions were inseparable.',
-      ],
-      gradient: 'from-rose-500 to-red-500',
-      links: { live: 'https://todfod-thursdays.vercel.app/', github: null },
+      gradient: 'from-red-500 to-orange-500',
+      links: { live: 'https://f1-fantasy-v1.vercel.app/', github: null },
       status: 'Live',
     },
   ]

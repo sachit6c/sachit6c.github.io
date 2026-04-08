@@ -1,5 +1,4 @@
 import { Briefcase, Award, GraduationCap, ExternalLink, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function About() {
@@ -7,77 +6,21 @@ export default function About() {
   const [expRef, expVisible] = useScrollAnimation()
   const experience = [
     {
-      company: 'Deloitte (Life Sciences)',
-      role: 'Senior Product Manager',
-      period: '2023 - Present',
-      problem: 'Medical researchers spent 12+ hours per query manually searching clinical protocols—slowing drug development',
-      solution: 'Built GenAI knowledge mining platform with semantic search, citation tracking, and advanced filtering for 500+ researchers',
+      company: 'Deloitte Consulting LLP',
+      role: 'Senior Consultant / Delivery Lead / Product Owner',
+      period: 'Jul 2018 – Present',
+      location: 'New York, NY',
+      problem: 'Leading enterprise technology programs for Fortune 500 clients across financial services, healthcare, and pharma — each with distinct complexity: scale, GenAI product ownership, and Agile coaching.',
+      solution: 'Served as Onsite Delivery Lead, Product Owner across Gen AI pods, and Agile coach — simultaneously across 26 squads, 185 members, and 335K budgeted hours.',
       delivery: [
-        '🔍 Discovery: Delivered 10+ major features across 4 quarterly releases',
-        '🎯 Alignment: Orchestrated 15-person engineering team, data science, UX, and medical SMEs—95% on-time delivery',
-        '🚀 Prototyping: Secured $200K funding by building 3 rapid MVPs in 2 weeks using AI no-code tools',
+        '🎯 Scale: Orchestrated 3 PI planning cycles with 91% on-time delivery across 26 squads — securing a $1.75M SOW extension',
+        '🤖 GenAI: Served as PO across multiple Gen AI pods at Pfizer — managing backlogs for LLM-powered market intelligence tools and defining acceptance criteria for non-deterministic outputs',
+        '📈 Growth: Led 2 high-performing pods delivering 11 major releases across 16 sprints, tripling the client user base; recognized by MD of Consulting as the "most visible team in the Pfizer program"',
+        '💡 Efficiency: Implemented Jira automation eliminating 20+ hours/week of manual work; built cross-pod integration templates saving 1,200+ person-hours annually',
+        '🏆 Business Dev: Instrumental in signing 2 RFPs worth $700K; won a 2-quarter contract in competitive bid over AWS vendor by identifying overlooked critical issues',
+        '🧑‍🏫 Coaching: Coached delivery leads and BAs across 3 concurrent Eli Lilly projects; increased team velocity 15% through retrospective facilitation and burndown transparency',
       ],
-      impact: 'Query-to-insight time: 12h → 6h • 40% increase in daily active users (500+ researchers) • Platform retention: 60% → 85% • Enabled $1.2M contract expansion',
-      learning: 'Failed: Initially over-designed UI with too many features—users ignored complex dashboards. Learning: Start simple (search-first), then iterate based on usage patterns.',
-      caseStudyLink: '/case-study/genai-platform',
-    },
-    {
-      company: 'Deloitte (Retail)',
-      role: 'Platform Product Manager',
-      period: '2022 - 2023',
-      problem: 'Duplicate backend work across 2 frontline apps slowing feature delivery—15,000 devices affected',
-      solution: 'Managed platform requirements from app teams, prioritized based on business needs, and orchestrated delivery of 12 new capabilities in 8 months',
-      delivery: [
-        '🔍 Discovery: Accelerated feature rollout by 30% through requirements prioritization and shared platform approach',
-        '🎯 Stability: Reduced mobile crash rate from 4.2% to 1.1%—preventing ~$500K lost productivity',
-        '🚀 Velocity: Transformed release cadence from monthly to bi-weekly while maintaining 98% uptime',
-      ],
-      impact: 'Frontline efficiency +20% (45 min saved per worker/week) • 12 capabilities across 15K devices • Deployment velocity doubled',
-      learning: 'Failed: Auto-allocation logic assigned tasks to workers on day off, causing stock issues. Learning: Shadow mode testing for platform features that affect multiple apps.',
-      caseStudyLink: '/case-study/kroger-platform',
-    },
-    {
-      company: 'Deloitte (Healthcare)',
-      role: 'Product Owner - SAMD',
-      period: '2019 - 2022',
-      problem: 'Complex FDA-compliant onboarding (24 steps) causing patient drop-offs—risking $2M delay penalty if targets missed',
-      solution: 'Redesigned to 12 essential steps while maintaining FDA 21 CFR Part 11 compliance—doubled completion rate',
-      delivery: [
-        '🔍 Delivery: Scaled to 3,000 users in 8 weeks vs 24-week target (3x faster)—prevented $2M penalty',
-        '🎯 Compliance: Delivered 3 regulated apps (1 SAMD Class II, 2 onboarding)—zero violations across 8 FDA audits',
-        '🚀 Collaboration: Led PI planning across clinical, regulatory, and engineering teams in 3 time zones—92% sprint velocity',
-      ],
-      impact: '3,000 users in 8 weeks (vs 24-week target) • Completion rate: 72% → 94% • 50% fewer steps (24 → 12) • Zero FDA violations',
-      learning: 'Failed: First redesign attempt kept too many "nice-to-have" steps due to stakeholder pressure. Learning: Ruthlessly prioritize only compliance-critical steps—users vote with completion rates.',
-      caseStudyLink: '/case-study/healthcare-samd',
-    },
-    {
-      company: 'CRMNEXT',
-      role: 'Product Manager',
-      period: '2017 - 2019',
-      problem: 'SaaS CRM leads converting slowly—lengthy sales-to-deployment cycles for SMB clients (<100 users)',
-      solution: 'Owned end-to-end lead conversion: RFP responses, product demos, SDLC, and cloud deployments across Services, Media & Insurance domains',
-      delivery: [
-        '🔍 Lead-to-Revenue: Managed full sales-to-deployment cycle—from RFPs to product configuration and cloud deployment',
-        '🎯 Enterprise Promotion: Promoted to enterprise clients—re-imagined customer service journey for India\'s largest insurance provider',
-        '🚀 Client Success: Led 20+ product demos and requirement workshops translating business needs into CRM solutions',
-      ],
-      impact: 'End-to-end ownership of SMB lead conversions • Promoted to enterprise accounts • Re-designed CS journey for India\'s largest insurer',
-      learning: 'Failed: Over-customized CRM for initial clients, creating maintenance debt. Learning: Build configurable vs custom—scalability beats one-off perfection.',
-    },
-    {
-      company: 'Financial Exchange',
-      role: 'Associate Product Owner',
-      period: '2016 - 2017',
-      problem: 'Trading platform releases had defects causing downtime—impacting revenue and operations',
-      solution: 'Coordinated UAT across 5 internal platform releases and documented 15+ business process workflows',
-      delivery: [
-        '🔍 Quality: Ensured 98% defect-free deployment rate across digital platform releases',
-        '🎯 Documentation: Improved cross-team collaboration through comprehensive workflow documentation',
-        '🚀 Efficiency: Reduced requirement clarification time by 30% through clear process docs',
-      ],
-      impact: '98% defect-free deployments • 5 successful UAT releases • 30% faster requirement clarification',
-      learning: 'Failed: Early documentation was too technical—business stakeholders couldn\'t follow. Learning: Write for your audience, not your expertise level.',
+      impact: '26 squads · 185 members · 91% on-time · $5M+ SOWs · 319% user growth · 15% velocity increase (Eli Lilly)',
     },
   ];
 
@@ -90,8 +33,8 @@ export default function About() {
             Experience
           </h2>
           <p className="text-xl sm:text-2xl text-zinc-400 max-w-3xl mx-auto leading-relaxed">
-            10 years building products for Fortune 500<br className="hidden sm:block" />
-            <span className="text-white">Healthcare • Retail • Life Sciences • Financial Services</span>
+            8 years at Deloitte Consulting<br className="hidden sm:block" />
+            <span className="text-white">Financial Services • Healthcare • Life Sciences</span>
           </p>
         </div>
 
@@ -140,27 +83,9 @@ export default function About() {
                 <p className="text-white font-semibold text-base leading-relaxed">{exp.impact}</p>
               </div>
 
-              {/* Learning / Failure */}
-              {exp.learning && (
-                <div className="pt-6 border-t border-zinc-800 mt-6">
-                  <p className="text-sm font-semibold text-amber-400 uppercase tracking-wider mb-3">What Didn't Work</p>
-                  <p className="text-zinc-300 text-base leading-relaxed italic">{exp.learning}</p>
-                </div>
-              )}
+              {/* Learning / Failure - removed for single-entry Deloitte card */}
 
-              {/* Case Study CTA */}
-              {exp.caseStudyLink && (
-                <div className="pt-6 border-t border-zinc-800 mt-6">
-                  <Link 
-                    to={exp.caseStudyLink}
-                    className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-black text-sm font-semibold rounded-full hover:bg-zinc-100 transition-smooth hover:scale-[1.02] group"
-                  >
-                    Read Full Case Study
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                  <p className="text-xs text-zinc-400 mt-3 font-medium">Deep dive into strategy, decisions, and lessons learned • 10 min read</p>
-                </div>
-              )}
+              {/* Case Study CTA - removed, case studies are in dedicated section */}
             </div>
           ))}
         </div>
@@ -230,7 +155,7 @@ export default function About() {
             <div className="mt-10">
               <h3 className="text-xl font-semibold text-white mb-6">Domain Experience</h3>
               <div className="flex flex-wrap gap-2">
-                {['Healthcare', 'Life Sciences', 'Retail', 'Financial Services', 'Insurance', 'Media'].map((domain) => (
+                {['Financial Services', 'Healthcare', 'Life Sciences', 'Pharma', 'Retail', 'Insurance'].map((domain) => (
                   <span key={domain} className="px-3 py-1 bg-zinc-900 rounded-full text-xs text-zinc-200 font-medium border border-zinc-800">
                     {domain}
                   </span>
@@ -238,16 +163,13 @@ export default function About() {
               </div>
             </div>
 
-            {/* Key Strengths */}
+            {/* Education */}
             <div className="mt-10">
-              <h3 className="text-xl font-semibold text-white mb-6">Key Strengths</h3>
-              <ul className="space-y-3">
-                <li className="text-zinc-200 text-base font-medium">🚀 0→1 Product Launches</li>
-                <li className="text-zinc-200 text-base font-medium">⚡ Rapid Prototyping & MVPs</li>
-                <li className="text-zinc-200 text-base font-medium">📊 Data-Driven Decision Making</li>
-                <li className="text-zinc-200 text-base font-medium">🎯 Cross-Functional Leadership</li>
-                <li className="text-zinc-200 text-base font-medium">🔧 Regulated Product Delivery</li>
-              </ul>
+              <h3 className="text-xl font-semibold text-white mb-6">Education</h3>
+              <div>
+                <p className="text-zinc-200 font-semibold">Thapar University</p>
+                <p className="text-zinc-400 text-sm">Bachelor of Technology, Electronics &amp; Instrumentation Control Engineering &middot; 2018</p>
+              </div>
             </div>
           </div>
         </div>

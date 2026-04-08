@@ -1,38 +1,37 @@
-import { ExternalLink, ArrowRight, Sparkles, Bot, BarChart3, FileSpreadsheet, Users, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { ExternalLink, ArrowRight, Zap, BarChart3, Database, FlaskConical, TestTube, GitBranch } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const features = [
   {
-    icon: Bot,
-    label: 'Live AI Agents',
-    desc: 'Agents plan your sprint, flag risks, and surface blockers — in real time.',
-    isNew: true,
-    accent: 'text-violet-400',
-    bg: 'bg-violet-950/30 border-violet-800/40',
+    icon: GitBranch,
+    label: 'Snake Draft Engine',
+    desc: 'Head-to-head snake drafts with configurable pick order and live draft state.',
+    isNew: false,
+    accent: 'text-red-400',
+    bg: 'bg-zinc-900 border-zinc-800',
   },
   {
-    icon: FileSpreadsheet,
-    label: 'PRD → Sprint Plan',
-    desc: 'Drop a PRD in. Get a sequenced, capacity-aware sprint plan out.',
+    icon: BarChart3,
+    label: 'Configurable Points Engine',
+    desc: 'Position, pole, sprint, fastest lap, penalties — all tunable per league rules.',
     isNew: false,
     accent: 'text-blue-400',
     bg: 'bg-zinc-900 border-zinc-800',
   },
   {
-    icon: BarChart3,
-    label: 'Confidence Scoring',
-    desc: 'Go/no-go read on every release before you promise stakeholders.',
-    isNew: false,
-    accent: 'text-emerald-400',
-    bg: 'bg-zinc-900 border-zinc-800',
+    icon: Database,
+    label: '27 Seasons of History',
+    desc: 'Full race data from 2000–2026. CSV-based offline-first with Ergast/OpenF1 API fallback.',
+    isNew: true,
+    accent: 'text-violet-400',
+    bg: 'bg-violet-950/30 border-violet-800/40',
   },
   {
-    icon: Users,
-    label: 'Capacity Engine',
-    desc: 'PTO, velocity, squad bandwidth — all auto-propagated.',
+    icon: FlaskConical,
+    label: '80%+ Test Coverage',
+    desc: 'Vitest unit tests + Playwright E2E covering draft flow, race views, and responsive layouts.',
     isNew: false,
-    accent: 'text-amber-400',
+    accent: 'text-emerald-400',
     bg: 'bg-zinc-900 border-zinc-800',
   },
 ];
@@ -45,7 +44,7 @@ export default function Product() {
     <section id="product" className="py-32 px-6 lg:px-12 bg-zinc-950 scroll-mt-24">
       <div className="max-w-7xl mx-auto">
 
-        {/* Batman identity reveal */}
+        {/* Day job / side builder identity */}
         <div
           ref={identityRef}
           className={`flex justify-center mb-16 scroll-hidden ${identityVisible ? 'scroll-visible' : ''}`}
@@ -58,12 +57,12 @@ export default function Product() {
             >
               <span className="text-base group-hover:scale-110 transition-transform inline-block">☀️</span>
               <div>
-                <p className="text-zinc-200 font-semibold leading-tight group-hover:text-white transition-colors">Senior PM · Deloitte USI</p>
-                <p className="text-zinc-500 text-xs mt-0.5 group-hover:text-zinc-400 transition-colors">Regulated platforms, Fortune 500 clients ↗</p>
+                <p className="text-zinc-200 font-semibold leading-tight group-hover:text-white transition-colors">Senior Consultant · Deloitte</p>
+                <p className="text-zinc-500 text-xs mt-0.5 group-hover:text-zinc-400 transition-colors">26 squads, Fortune 500 clients ↗</p>
               </div>
             </a>
             <a
-              href="https://github.com/shekhar992"
+              href="https://github.com/sachit6c"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 px-6 py-4 bg-zinc-950 hover:bg-violet-950/30 transition-colors cursor-pointer group"
@@ -71,7 +70,7 @@ export default function Product() {
             >
               <span className="text-base group-hover:scale-110 transition-transform inline-block">🌙</span>
               <div>
-                <p className="text-violet-300 font-semibold leading-tight group-hover:text-violet-200 transition-colors">Solo vibe coder · after hours</p>
+                <p className="text-violet-300 font-semibold leading-tight group-hover:text-violet-200 transition-colors">Builder · after hours</p>
                 <p className="text-zinc-500 text-xs mt-0.5 group-hover:text-zinc-400 transition-colors">Shipping what I wish existed ↗</p>
               </div>
             </a>
@@ -85,46 +84,39 @@ export default function Product() {
         >
           {/* Left: problem + outcomes + CTAs */}
           <div>
-            <p className="text-sm text-zinc-400 mb-3">12 Excel files. 5 squads. 200 tickets. Zero clarity.</p>
+            <p className="text-sm text-zinc-400 mb-3">Every F1 fantasy app I tried was either too simple or paywalled. So I built one.</p>
             <h2 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-4 tracking-tight">
-              Smart Release Planner
+              F1 Fantasy League
             </h2>
             <p className="text-zinc-400 text-xl mb-8 leading-relaxed">
-              Built the tool I wished existed as a PM. Pre-JIRA planning for chaotic releases — solo, in 3 weeks, now live with AI agents.
+              Full-stack fantasy F1 with head-to-head snake drafts, a configurable points engine, and 27 seasons of race data — deployed with no build step.
             </p>
 
             <ul className="space-y-3 mb-10">
               {[
-                'Research time cut in half — 12 hrs down to 6',
-                'Zero to production in 3 weeks, shipping solo',
-                'AI agents now plan your sprint, not just assist',
+                '27 seasons (2000–2026) of historical race data',
+                'Configurable scoring: position, pole, sprint, fastest lap, penalties',
+                '80%+ unit test coverage + Playwright E2E suites',
               ].map((outcome) => (
                 <li key={outcome} className="flex items-start gap-3 text-zinc-300">
-                  <span className="text-violet-400 mt-1 shrink-0">→</span>
+                  <span className="text-red-400 mt-1 shrink-0">→</span>
                   <span>{outcome}</span>
                 </li>
               ))}
             </ul>
 
             <div className="flex flex-wrap items-center gap-3">
-              <Link
-                to="/smart-release-planner"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-zinc-100 transition-smooth hover:scale-[1.02]"
-              >
-                Full story
-                <ArrowRight size={18} />
-              </Link>
               <a
-                href="https://smart-release-planner1.vercel.app/"
+                href="https://f1-fantasy-v1.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-800/50 transition-smooth hover:scale-[1.02]"
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-zinc-100 transition-smooth hover:scale-[1.02]"
               >
                 Try it live
                 <ExternalLink size={18} />
               </a>
               <a
-                href="https://github.com/shekhar992/smart-release-planner"
+                href="https://github.com/sachit6c"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-3 text-zinc-400 hover:text-zinc-200 transition-smooth text-sm"
@@ -139,8 +131,8 @@ export default function Product() {
           <div className="mt-12 lg:mt-0 space-y-3">
             <div className="flex items-center justify-between mb-5">
               <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">What it does</span>
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-violet-950/50 border border-violet-700/40 text-violet-300 text-xs font-semibold">
-                <Sparkles size={11} />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-red-950/50 border border-red-700/40 text-red-300 text-xs font-semibold">
+                <Zap size={11} />
                 Live, free, no signup
               </span>
             </div>
@@ -157,7 +149,7 @@ export default function Product() {
                     <span className="text-sm font-semibold text-white">{label}</span>
                     {isNew && (
                       <span className="px-1.5 py-0.5 rounded bg-violet-900/60 border border-violet-600/50 text-violet-300 text-[10px] font-bold uppercase tracking-wide">
-                        New
+                        2026
                       </span>
                     )}
                   </div>
@@ -168,7 +160,7 @@ export default function Product() {
 
             {/* Stack chips */}
             <div className="pt-4 flex flex-wrap gap-2">
-              {['React + TypeScript', 'Claude + Copilot', 'Vercel', 'Live Agents'].map((tag) => (
+              {['React', 'TypeScript', 'Vitest', 'Playwright', 'Vercel'].map((tag) => (
                 <span
                   key={tag}
                   className="px-3 py-1 bg-zinc-900 text-zinc-400 text-xs rounded-full border border-zinc-800"

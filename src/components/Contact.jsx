@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, Download, CheckCircle2, Target, Calendar } from 'lucide-react';
+import { Mail, Linkedin, Github, Download, CheckCircle2, Target } from 'lucide-react';
 
 export default function Contact() {
   return (
@@ -7,24 +7,10 @@ export default function Contact() {
         <h2 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-12 tracking-tight">
           Let's connect
         </h2>
-        
-        <p className="text-xl sm:text-2xl text-zinc-400 mb-8 leading-relaxed">
+
+        <p className="text-xl sm:text-2xl text-zinc-400 mb-16 leading-relaxed">
           Open to product leadership roles.
         </p>
-
-        {/* Calendly CTA - primary conversion action */}
-        <div className="mb-16">
-          <a
-            href="https://calendly.com/sharmashekhar992/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 px-10 py-5 bg-emerald-500 text-black rounded-full text-lg font-semibold hover:bg-emerald-400 transition-smooth hover:scale-[1.02] shadow-lg shadow-emerald-500/20"
-          >
-            <Calendar size={22} />
-            Book a 30-min intro call
-          </a>
-          <p className="text-zinc-500 text-sm mt-3">No email back-and-forth. Pick a time that works for you.</p>
-        </div>
 
         {/* Ideal Next Role Section */}
         <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-8 sm:p-12 mb-20 text-left max-w-3xl mx-auto">
@@ -34,61 +20,56 @@ export default function Contact() {
           </div>
 
           <div className="space-y-8">
-            {/* Role Level */}
             <div>
               <h4 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-3">Role Level</h4>
-              <p className="text-zinc-200 text-base">Senior Product Manager, Principal PM, or Group PM roles where I can drive strategy and mentor other PMs.</p>
+              <p className="text-zinc-200 text-base">Senior Product Manager, Delivery Lead, or Senior Product Owner roles where I can drive strategy across cross-functional programs.</p>
             </div>
 
-            {/* Domain Focus */}
             <div>
               <h4 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-3">Domain Focus</h4>
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-emerald-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-zinc-200"><strong className="text-white">Healthcare/Life Sciences AI:</strong> GenAI platforms, clinical decision support, regulated medical devices (SAMD)</span>
+                  <span className="text-zinc-200"><strong className="text-white">Financial Services / FinTech:</strong> Complex enterprise platforms, digital transformation, compliance-heavy environments</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-emerald-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-zinc-200"><strong className="text-white">AI/ML Products:</strong> GenAI applications, LLM-powered tools, AI-assisted workflows</span>
+                  <span className="text-zinc-200"><strong className="text-white">AI/ML Products:</strong> GenAI applications, LLM-powered tools, AI-assisted enterprise workflows</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-emerald-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-zinc-200"><strong className="text-white">Platform/Infrastructure:</strong> Building products that enable other teams to move faster</span>
+                  <span className="text-zinc-200"><strong className="text-white">Platform/Delivery:</strong> Large-scale program delivery, cross-functional leadership across 10+ squads</span>
                 </div>
               </div>
             </div>
 
-            {/* Company Stage */}
             <div>
               <h4 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-3">Company Stage</h4>
-              <p className="text-zinc-200 text-base">Enterprise (Fortune 500), Scale-ups (Series B+), or strategic consulting firms building AI/healthcare products.</p>
+              <p className="text-zinc-200 text-base">Enterprise (Fortune 500), Scale-ups (Series B+), or consulting firms where delivery complexity and cross-functional leadership matter.</p>
             </div>
 
-            {/* What Excites Me */}
             <div>
               <h4 className="text-sm font-semibold text-zinc-400 uppercase tracking-wider mb-3">What Excites Me</h4>
               <div className="space-y-2">
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 mt-1">•</span>
-                  <span className="text-zinc-200">Complex problems requiring regulatory navigation (FDA, HIPAA, etc.)</span>
+                  <span className="text-zinc-200">Large-scale program delivery with real complexity and stakeholder pressure</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 mt-1">•</span>
-                  <span className="text-zinc-200">0→1 product building or platform transformation initiatives</span>
+                  <span className="text-zinc-200">GenAI / LLM product ownership — defining ACs for non-deterministic systems</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 mt-1">•</span>
-                  <span className="text-zinc-200">Cross-functional leadership across engineering, data science, clinical, regulatory teams</span>
+                  <span className="text-zinc-200">Cross-functional leadership across engineering, data science, and business</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <span className="text-blue-400 mt-1">•</span>
-                  <span className="text-zinc-200">Leveraging AI to ship products faster (rapid prototyping, AI-assisted development)</span>
+                  <span className="text-zinc-200">Building and coaching high-performing Agile teams</span>
                 </div>
               </div>
             </div>
 
-            {/* Deal-Breakers */}
             <div className="pt-6 border-t border-zinc-800">
               <h4 className="text-sm font-semibold text-red-400 uppercase tracking-wider mb-3">Not a Good Fit</h4>
               <p className="text-zinc-400 text-sm italic">Pure B2C/consumer social, non-technical PM roles, or companies without engineering/product investment.</p>
@@ -96,18 +77,18 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Contact Links - All in One Row */}
+        {/* Contact Links */}
         <div className="flex flex-wrap gap-4 justify-center mb-20">
           <a
-            href="mailto:sharmashekhar992@gmail.com"
+            href="mailto:sachit.sharma@hotmail.com"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-zinc-100 transition-smooth hover:scale-[1.02]"
           >
             <Mail size={18} />
             Email me
           </a>
-          
+
           <a
-            href="https://www.linkedin.com/in/sheksharma"
+            href="https://www.linkedin.com/in/ssachit"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-900/50 transition-smooth hover:scale-[1.02]"
@@ -115,9 +96,9 @@ export default function Contact() {
             <Linkedin size={18} />
             LinkedIn
           </a>
-          
+
           <a
-            href="https://github.com/shekhar992"
+            href="https://github.com/sachit6c"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-900/50 transition-smooth hover:scale-[1.02]"
@@ -125,7 +106,7 @@ export default function Contact() {
             <Github size={18} />
             GitHub
           </a>
-          
+
           <a
             href="/resume.pdf"
             download
@@ -136,7 +117,7 @@ export default function Contact() {
           </a>
         </div>
 
-        <p className="text-zinc-400 text-base font-medium">Mumbai, India · Open to Remote</p>
+        <p className="text-zinc-400 text-base font-medium">New York, NY · Open to Hybrid</p>
       </div>
     </section>
   );

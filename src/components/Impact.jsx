@@ -5,28 +5,28 @@ export default function Impact() {
   const [gridRef, gridVisible] = useScrollAnimation()
   const metrics = [
     {
-      value: '12h → 6h',
-      label: 'Research Time Cut',
-      context: 'Researchers could run twice as many experiments per day — a half-day task became a morning activity.',
-      domain: 'GenAI Platform · Life Sciences',
+      value: '26 squads',
+      label: 'Program Scale',
+      context: '185 members across 3 PI cycles — serving as Onsite Delivery Lead and orchestrating 335K budgeted hours.',
+      domain: 'Deloitte · TRP/FIS Program',
     },
     {
-      value: '3x faster',
-      label: 'Patient Onboarding',
-      context: '3,000 patients onboarded in 8 weeks vs. a 24-week target — avoiding a $2M contract penalty.',
-      domain: 'Healthcare SAMD · FDA Regulated',
+      value: '91%',
+      label: 'On-Time Delivery',
+      context: '91% on-time delivery across all 3 PI planning cycles — securing a $1.75M SOW extension.',
+      domain: 'Deloitte · Delivery Excellence',
     },
     {
-      value: '40x',
-      label: 'Platform Adoption',
-      context: 'Grew from 5 to 200 active researchers in 18 months across 3 divisions — without a single marketing campaign.',
-      domain: 'GenAI Platform · Organic Growth',
+      value: '319%',
+      label: 'User Growth',
+      context: 'Led 2 high-performing pods delivering 11 major releases across 16 sprints — tripling the client user base.',
+      domain: 'Deloitte · Pfizer Program',
     },
     {
-      value: '3 weeks',
-      label: 'Zero-to-SaaS',
-      context: 'Shipped a working SaaS product independently using AI as a co-developer — no PRDs, no agency, no team.',
-      domain: 'Smart Release Planner · Side Project',
+      value: '$5M+',
+      label: 'SOWs Signed',
+      context: 'Instrumental in signing 2 RFPs worth $700K and securing long-term contract extensions across multiple programs.',
+      domain: 'Deloitte · Business Development',
     },
   ];
 
@@ -41,7 +41,7 @@ export default function Impact() {
             The numbers I move
           </h2>
           <p className="text-xl sm:text-2xl text-zinc-400 max-w-3xl mx-auto">
-            10 years. Fortune 500. From GenAI platforms to healthcare devices.
+            8 years. Fortune 500. From GenAI pods to 26-squad delivery programs.
           </p>
         </div>
 

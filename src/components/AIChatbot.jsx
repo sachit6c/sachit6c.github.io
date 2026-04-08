@@ -6,7 +6,7 @@ export default function AIChatbot() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "👋 Hi! I'm Shekhar's AI assistant. Ask me anything about his experience, projects, or skills!",
+      content: "👋 Hi! I'm Sachit's AI assistant. Ask me anything about his experience, projects, or skills!",
     },
   ]);
   const [input, setInput] = useState('');
@@ -18,7 +18,7 @@ export default function AIChatbot() {
   const initialMessages = [
     {
       role: 'assistant',
-      content: "👋 Hi! I'm Shekhar's AI assistant. Ask me anything about his experience, projects, or skills!",
+      content: "👋 Hi! I'm Sachit's AI assistant. Ask me anything about his experience, projects, or skills!",
     },
   ];
 
@@ -37,95 +37,97 @@ export default function AIChatbot() {
   }, [isOpen]);
 
   const resumeContext = `
-SHEKHAR SHARMA - Senior Product Manager
+SACHIT SHARMA - Senior Consultant / Delivery Lead / Product Owner
 
 CONTACT:
-Email: sharmashekhar992@gmail.com
-LinkedIn: linkedin.com/in/sheksharma
-Website: https://shekhar-sharma-portfolio.vercel.app/
-Location: Mumbai, India · Open to Remote
+Email: sachit.sharma@hotmail.com
+LinkedIn: linkedin.com/in/ssachit
+GitHub: github.com/sachit6c
+Location: New York, NY · Open to Hybrid
 
 PROFESSIONAL SUMMARY:
-10 years of product management experience with 7 years at Deloitte building products for Fortune 500 clients across life sciences, retail, and healthcare sectors. Expert in GenAI/LLMs, Enterprise SaaS, Mobile Applications, and Regulated Healthcare (SAMD).
+8 years at Deloitte Consulting LLP serving as Senior Consultant, Delivery Lead, and Product Owner across Fortune 500 clients in financial services, healthcare, and life sciences. Expert in large-scale program delivery, GenAI product ownership, SAFe Agile, and stakeholder management.
 
 KEY ACHIEVEMENTS:
-- Led GenAI platform serving 500+ medical researchers, reducing insight time from 12 hours to 6 hours
-- Secured $200K incremental funding through rapid MVP prototyping
-- Scaled SAMD patient app to 3,000 users in 8 weeks (3x faster than 24-week target)
-- Built and shipped PI Planner SaaS tool independently in 3 weeks, leveraging AI as development partner
+- Onsite Delivery Lead for 26 squads (185 members, 335K budgeted hours) — 91% on-time delivery across 3 PI cycles
+- Secured $1.75M SOW extension; instrumental in signing 2 RFPs worth $700K
+- Won a competitive bid over AWS vendor by identifying overlooked critical issues
+- Led 2 high-performing pods delivering 11 major releases across 16 sprints — tripling the client user base
+- Recognized by MD of Consulting as "most visible team in the Pfizer program"
+- Implemented Jira automation eliminating 20+ hours/week of manual work
+- Built cross-pod integration templates saving 1,200+ person-hours annually
+- Increased team velocity 15% at Eli Lilly through Agile coaching and retrospective facilitation
+- 319% user growth across 6 mobile releases
 
-CURRENT ROLE - Senior Product Manager at Deloitte (Life Sciences GenAI Platform) - 2023-Present:
-- Delivered 10+ major features across 4 quarterly releases
-- Reduced researcher query-to-insight time from 12 hours to 6 hours
-- Drove 40% increase in daily active users (500+ researchers)
-- Orchestrated 15-person cross-functional team with 95% on-time delivery rate
-- Platform retention improved from 60% to 85%
-- Enabled $1.2M contract expansion
+GENAI PRODUCT OWNERSHIP (Pfizer):
+- Served as PO across multiple Gen AI pods simultaneously
+- Managed backlogs for LLM-powered market intelligence and pre-opportunity identification tools
+- Defined acceptance criteria for non-deterministic Gen AI outputs
+- Aligned cross-geography stakeholders (US and Greece) on AI product priorities and evaluation standards
+- Bridged business users and data science teams to translate LLM model capabilities into user-facing features
+- Managed backlog across data ingestion, model, and inference layers
 
-PREVIOUS ROLES:
-1. Platform Product Manager - Retail Mobile Platform (2022-2023):
-   - Managed requirements from app teams and prioritized based on business needs
-   - Accelerated feature rollout by 30% through strategic prioritization
-   - Reduced mobile crash rate from 4.2% to 1.1% (preventing $500K lost productivity)
-   - Improved frontline efficiency by 20% across 15,000 devices
-   - Doubled deployment velocity (monthly to bi-weekly sprints)
+DELIVERY LEADERSHIP (TRP/FIS Program):
+- Onsite Delivery Lead for 26 squads, 185 members, 335K budgeted hours
+- Orchestrated 3 PI planning cycles with 91% on-time delivery
+- Designed hours-estimation methodology correcting a 30% underestimation
+- Led OKR development, mid-PI reviews, and value stream modeling
+- Developed PI mitigation plans — identifying and escalating 4 critical dependencies early
+- Facilitated quarterly Product Delivery meetings and client Product Strategy sessions
 
-2. Product Owner - Healthcare SAMD Applications (2019-2022):
-   - Delivered 3 regulated patient-facing mobile apps with zero FDA violations
-   - Redesigned onboarding from 24 steps to 12 steps (completion rate 72% → 94%)
-   - Prevented $2M delay penalty through accelerated user onboarding
-   - Maintained 92% sprint velocity consistency across 3 time zones
+AGILE COACHING & PRODUCT OWNERSHIP (Eli Lilly):
+- Product Owner and Agile coach across 3 concurrent projects
+- Increased team velocity by 15% through retrospective facilitation and burndown transparency
+- Facilitated bug-bash sessions surfacing 6 defects and 2 change requests pre-release
 
-3. Product Manager - CRMNEXT SaaS Platform (2017-2019):
-   - Owned end-to-end lead conversion cycle: RFPs, demos, SDLC, cloud deployment for SMB clients (<100 users)
-   - Managed Services, Media & Insurance domain clients
-   - Promoted to enterprise accounts—re-imagined customer service journey for India's largest insurance provider
-   - Led 20+ product demos and requirement workshops
+SIDE PROJECTS:
+1. F1 Fantasy League (https://f1-fantasy-v1.vercel.app/)
+   - Full-stack fantasy F1 with head-to-head snake drafts
+   - Configurable points engine: position, pole, sprint, fastest lap, penalties
+   - 27 seasons (2000-2026) of historical race data
+   - 80%+ unit test coverage (Vitest) + Playwright E2E suites
+   - Offline-first CSV data model with Ergast/OpenF1 API fallback
 
-4. Associate Product Owner - Financial Exchange (2016-2017):
-   - 98% defect-free deployment rate across 5 releases
-   - Reduced requirement clarification time by 30%
-
-SIDE PROJECT:
-Smart Release Planner - Built and deployed full-stack release planning SaaS in 3 weeks using React, TypeScript, and AI-assisted development. Features release confidence scoring algorithm with 85% accuracy, achieving 500+ hours of simulated capacity analysis.
+2. 64Squares — Chess Fantasy League (https://chess-fantasy.vercel.app/)
+   - Real-time scoring via 30-second Lichess Broadcasts PGN polling
+   - Supabase PostgreSQL with RLS security policies
+   - Fuzzy player name matching for 1000+ titled players (Chess.com + FIDE)
+   - In-app PGN game viewer (chess.js + cm-chessboard)
+   - Python data pipeline for player fetching, seeding, and tournament management
 
 SKILLS & EXPERTISE:
-- Product Management: Product Strategy, Roadmap Planning, Stakeholder Management, OKRs & KPIs, PI Planning, Product-Market Fit, User Research, A/B Testing, Go-to-Market, Cross-Functional Leadership
-- Technical & Platforms: GenAI/LLMs, Enterprise SaaS, Mobile Apps (iOS/Android), API Design, Cloud Platforms, SAMD Compliance, FDA 21 CFR Part 11, Data Analytics
-- Methodologies & Frameworks: SAFe Agile, Scrum, Lean Product Development, Design Thinking, Jobs-to-be-Done, Continuous Discovery
-- Tools & Prototyping: Figma, JIRA, Confluence, SQL, Miro, Amplitude, AI-Powered Prototyping, Rapid Development
+- Program Delivery: PI Planning, OKR Development, Risk Management, Stakeholder Management, Value Stream Mapping
+- Product Ownership: Backlog Management, Acceptance Criteria, User Story Writing, Sprint Planning, Roadmapping
+- GenAI/AI: LLM Product Ownership, Non-deterministic Output ACs, RAG, Prompt Engineering, AI Product Strategy
+- Agile: SAFe Agile, Scrum, Kanban, Agile Coaching, Retrospective Facilitation
+- Tools: Jira, Confluence, Figma, Miro, Tableau, Power BI, SQL, Azure DevOps, Salesforce
+- Tech (Side Projects): React, TypeScript, Supabase, PostgreSQL, Vitest, Playwright, Python
 
 DOMAIN EXPERIENCE:
-Healthcare, Life Sciences, Retail, Financial Services, Insurance, Media
-
-KEY STRENGTHS:
-- 0→1 Product Launches
-- Rapid Prototyping & MVPs
-- Data-Driven Decision Making
-- Cross-Functional Leadership
-- Regulated Product Delivery
+Financial Services, Healthcare, Life Sciences, Pharma, Retail, Insurance
 
 CERTIFICATIONS:
-- Certified SAFe® 6 Agilist (2025)
-- Certified Scrum Product Owner (CSPO) (2025)
+- Certified SAFe® 6 Agilist
+- Certified Scrum Product Owner (CSPO)
 
 EDUCATION:
-Bachelor of Engineering - Information Technology, Mumbai
+Bachelor of Technology, Electronics & Instrumentation Control Engineering
+Thapar University, 2018
 `;
 
   const quickQuestions = [
     "Download resume",
+    "Tell me about your biggest program",
     "What's your GenAI experience?",
-    "Tell me about your biggest impact",
     "What tools and tech do you use?",
-    "How do you ship products fast?",
+    "Tell me about your side projects",
   ];
 
   const moreQuestions = [
     "What companies have you worked for?",
-    "Tell me about the Smart Release Planner",
-    "What's your experience with regulated healthcare?",
-    "How do you approach product strategy?",
+    "Tell me about the F1 Fantasy League",
+    "What's your Agile coaching experience?",
+    "How do you approach stakeholder management?",
     "What certifications do you have?",
     "What's your leadership style?",
   ];
@@ -190,7 +192,7 @@ Bachelor of Engineering - Information Technology, Mumbai
     if (question === "Download resume") {
       const link = document.createElement('a');
       link.href = '/resume.pdf';
-      link.download = 'Shekhar_Sharma_Resume.pdf';
+      link.download = 'Sachit_Sharma_Resume.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

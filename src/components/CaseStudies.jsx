@@ -1,5 +1,4 @@
-import { ArrowRight, Clock, Sparkles } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Clock, Sparkles } from 'lucide-react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const CaseStudies = () => {
@@ -8,50 +7,49 @@ const CaseStudies = () => {
   const [cardsRef, cardsVisible] = useScrollAnimation()
   const caseStudies = [
     {
-      id: 'genai-platform',
-      title: 'Transforming Life Sciences Research with GenAI',
+      id: 'pfizer-genai',
+      title: 'GenAI Product Owner: LLM-Powered Market Intelligence',
       company: 'Deloitte (Life Sciences)',
-      hook: 'How I scaled a broken AI platform from 5 to 200 users, secured $200K funding through rapid prototyping, and learned vital lessons when the project shut down.',
+      hook: 'Serving as PO across multiple Gen AI pods simultaneously — managing backlogs for LLM-powered market intelligence and pre-opportunity identification tools used across Pfizer.',
       metrics: [
-        { value: '12h → 6h', label: 'Research time' },
-        { value: '40x growth', label: '5 → 200 users' },
-        { value: '$200K', label: 'Funding secured' }
+        { value: 'Multi-pod', label: 'Concurrent PO' },
+        { value: 'LLMs', label: 'Non-deterministic ACs' },
+        { value: '2 geos', label: 'US + Greece' }
       ],
-      skills: ['GenAI/LLMs', 'Product Strategy', 'Leadership', 'Rapid Prototyping'],
+      skills: ['GenAI/LLMs', 'Backlog Management', 'Stakeholder Alignment', 'AI Product Strategy'],
       readTime: '10 min',
       gradient: 'from-purple-500 to-pink-500',
-      published: true
+      published: false
     },
-    // Kroger Platform Case Study
     {
-      id: 'kroger-platform',
-      title: 'Scaling 15,000 Retail Devices with Platform Thinking',
-      company: 'Deloitte (Retail)',
-      hook: 'How I eliminated duplicate backend work across 2 frontline apps, doubled deployment velocity, and saved 45 minutes per worker per week while scaling 100 → 200 stores.',
+      id: 'trpfis-delivery',
+      title: '26-Squad Program: Delivery Leadership at Scale',
+      company: 'Deloitte (Financial Services)',
+      hook: 'Onsite Delivery Lead for 26 squads and 185 members across 335K budgeted hours — orchestrating 3 PI planning cycles at 91% on-time delivery and securing a $1.75M SOW extension.',
       metrics: [
-        { value: '30%', label: 'Faster delivery' },
-        { value: '4.2% → 1.1%', label: 'Crash rate' },
-        { value: '2x', label: 'Deploy velocity' }
+        { value: '26 squads', label: '185 members' },
+        { value: '91%', label: 'On-time delivery' },
+        { value: '$1.75M', label: 'SOW extension' }
       ],
-      skills: ['Platform Strategy', 'Stakeholder Alignment', 'Operational Excellence', 'Change Management'],
+      skills: ['Program Delivery', 'PI Planning', 'Stakeholder Management', 'Risk Mitigation'],
       readTime: '8 min',
       gradient: 'from-blue-500 to-cyan-500',
-      published: true
+      published: false
     },
     {
-      id: 'healthcare-samd',
-      title: 'Healthcare SAMD: Regulatory PM Excellence',
+      id: 'eli-lilly-po',
+      title: 'Agile Product Ownership: Coaching & Velocity at Eli Lilly',
       company: 'Deloitte (Healthcare)',
-      hook: 'How I redesigned 24-screen FDA-regulated onboarding to 5 screens, delivered 3,000 patients in 8 weeks (3x faster), prevented $2M penalty, with zero FDA violations.',
+      hook: 'Product Owner and Agile coach across 3 concurrent Eli Lilly projects — 15% velocity increase through retrospective facilitation, burndown transparency, and pre-release bug-bash sessions.',
       metrics: [
-        { value: '3x faster', label: '8 weeks vs 24 weeks' },
-        { value: '94%', label: 'Completion rate' },
-        { value: '$2M', label: 'Penalty prevented' }
+        { value: '+15%', label: 'Sprint velocity' },
+        { value: '3 projects', label: 'Concurrent' },
+        { value: '8 defects', label: 'Pre-release' }
       ],
-      skills: ['Regulatory PM', 'FDA Compliance', 'Stakeholder Negotiation', 'Patient Safety'],
-      readTime: '12 min',
+      skills: ['Product Ownership', 'Agile Coaching', 'Scrum', 'SAFe'],
+      readTime: '6 min',
       gradient: 'from-emerald-500 to-teal-500',
-      published: true
+      published: false
     }
   ]
 
@@ -80,9 +78,7 @@ const CaseStudies = () => {
           <div className="bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8">
             <h3 className="text-xl font-semibold text-white mb-4">Why Three Deloitte Stories?</h3>
             <p className="text-zinc-300 leading-relaxed mb-4">
-              After gaining foundational PM experience at BSE and CRMNEXT, I joined Deloitte specifically because 
-              <strong className="text-white"> Fortune 500 clients gave me access to three distinct PM challenges</strong>{' '}
-              that most PMs don't get to experience in one career:
+              At Deloitte I've had the rare opportunity to work across three distinct delivery challenges that most PMs never encounter in one career:
             </p>
             <div className="space-y-4">
               <div className="flex gap-4">
@@ -90,8 +86,8 @@ const CaseStudies = () => {
                   <span className="text-purple-400 font-bold">1</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-white mb-1">Innovation PM (Life Sciences GenAI)</div>
-                  <div className="text-sm text-zinc-400">0→1 AI platform building—rapid prototyping, securing funding, scaling broken products</div>
+                  <div className="font-semibold text-white mb-1">AI Product Ownership (Life Sciences)</div>
+                  <div className="text-sm text-zinc-400">PO across multiple Gen AI pods — backlog management for LLM tools, acceptance criteria for non-deterministic outputs</div>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -99,8 +95,8 @@ const CaseStudies = () => {
                   <span className="text-blue-400 font-bold">2</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-white mb-1">Scale PM (Retail Platform)</div>
-                  <div className="text-sm text-zinc-400">Operational excellence across 15K devices—platform thinking, reliability, change management</div>
+                  <div className="font-semibold text-white mb-1">Scale Delivery (Financial Services)</div>
+                  <div className="text-sm text-zinc-400">26-squad program lead — PI planning, risk mitigation, $5M+ SOW portfolio, 91% on-time delivery</div>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -108,14 +104,13 @@ const CaseStudies = () => {
                   <span className="text-emerald-400 font-bold">3</span>
                 </div>
                 <div>
-                  <div className="font-semibold text-white mb-1">Regulatory PM (Healthcare SAMD)</div>
-                  <div className="text-sm text-zinc-400">FDA compliance + patient safety—stakeholder negotiation under pressure, zero violations</div>
+                  <div className="font-semibold text-white mb-1">Agile PO + Coaching (Healthcare)</div>
+                  <div className="text-sm text-zinc-400">Product Owner across 3 concurrent Eli Lilly projects — Agile coaching, retrospectives, 15% velocity increase</div>
                 </div>
               </div>
             </div>
             <p className="text-zinc-400 text-sm mt-6 italic">
-              These stories showcase versatility: I can prototype fast (GenAI), scale reliably (Retail Platform), 
-              and navigate regulatory constraints (Healthcare)—all essential for a future AI Product Leader.
+              These stories showcase versatility: I can ship AI products (GenAI PO), lead at scale (26 squads), and coach teams to deliver—all essential for a senior PM or delivery leader role.
             </p>
           </div>
         </div>
@@ -125,11 +120,7 @@ const CaseStudies = () => {
           {caseStudies.map((study) => (
             <div
               key={study.id}
-              className={`group relative bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden transition-all duration-500 ${
-                study.published 
-                  ? 'hover:border-zinc-700 hover:scale-[1.02] cursor-pointer' 
-                  : 'opacity-60 cursor-not-allowed'
-              }`}
+              className={`group relative bg-zinc-950 border border-zinc-800 rounded-3xl overflow-hidden transition-all duration-500 hover:border-zinc-700 hover:scale-[1.02]`}
             >
               {/* Gradient Header */}
               <div className={`h-2 bg-gradient-to-r ${study.gradient}`} />
@@ -185,19 +176,9 @@ const CaseStudies = () => {
                 </div>
 
                 {/* CTA */}
-                {study.published ? (
-                  <Link
-                    to={`/case-study/${study.id}`}
-                    className="inline-flex items-center gap-2 text-white font-semibold group-hover:gap-3 transition-all"
-                  >
-                    Read Case Study
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                ) : (
-                  <div className="inline-flex items-center gap-2 text-zinc-600 font-medium">
-                    Coming Soon
-                  </div>
-                )}
+                <div className="inline-flex items-center gap-2 text-zinc-500 font-medium text-sm">
+                  Full story coming soon
+                </div>
               </div>
 
               {/* Hover Glow Effect */}

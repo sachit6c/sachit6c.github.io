@@ -96,7 +96,7 @@ export default function Navigation() {
             to="/"
             className="text-lg font-semibold text-white hover:text-zinc-400 transition-smooth shrink-0"
           >
-            Shekhar Sharma
+            Sachit Sharma
           </Link>
 
           {/* Desktop nav — centered absolutely so it's truly middle */}
