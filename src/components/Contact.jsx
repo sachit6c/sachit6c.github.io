@@ -110,8 +110,8 @@ export default function Contact() {
           </a>
 
           <a
-            href="/resume.pdf"
-            download="Sachit-Sharma-pm-resume.pdf"
+            href="/Sachit-Sharma-AI-PM-Resume.pdf"
+            download="Sachit-Sharma-AI-PM-Resume.pdf"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-800 transition-smooth hover:scale-[1.02]"
           >
             <Download size={18} />

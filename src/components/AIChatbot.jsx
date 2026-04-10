@@ -46,7 +46,7 @@ GitHub: github.com/sachit6c
 Location: New York, NY · Open to Hybrid
 
 PROFESSIONAL SUMMARY:
-Hybrid Technology Product & Program Manager with 8+ years at Deloitte Consulting LLP delivering large-scale digital transformation programs in financial services and enterprise tech. Combines hands-on Scrum team leadership — managing 26+ squads, facilitating PI planning, and serving as Scrum Master — with strategic product ownership across roadmapping, OKRs, backlog management, and release strategy. PMP, CSPO, and SAFe certified. Proven track record across fintech (FIS / T. Rowe Price), pharma, and healthcare clients.
+Hybrid Technology Product & Program Manager with 8+ years at Deloitte Consulting LLP delivering large-scale digital transformation programs in financial services and enterprise tech. Combines hands-on Scrum team leadership — managing 26+ squads, facilitating PI planning, and serving as Scrum Master — with strategic product ownership across roadmapping, OKRs, backlog management, and release strategy. PMP, CSPO, and SAFe certified. Proven track record across fintech (FIS Global (Fidelity National Information Services) / T. Rowe Price), pharma, and healthcare clients.
 
 KEY METRICS:
 - 26 squads / 185 members managed simultaneously
@@ -56,14 +56,14 @@ KEY METRICS:
 - $2.45M+ revenue influenced (SOW extensions + RFP wins)
 - 175% process efficiency gain; meetings cut to <9 min
 - 20+ hours/week manual work eliminated via Jira automation
-- 319% user growth (Lilly mobile) · 3x user growth (Pfizer)
+- 319% user growth (Eli Lilly mobile) · 3x user growth (Pfizer)
 
 EXPERIENCE:
 
-Onsite Delivery Lead / Senior Product Manager — T. Rowe Price & FIS
+Onsite Delivery Lead / Senior Product Manager — T. Rowe Price & FIS Global
 Deloitte Consulting LLP | New York, NY | 2025 – Present
 - Orchestrated 3 complete PI planning cycles for 26 agile squads (185 members), achieving 91% on-time story completion across 8,966+ story points and 73 production deployments
-- Facilitated quarterly Product Delivery meetings and Product Strategy sessions between TRP and FIS, establishing a prioritized 3–12 month roadmap aligned to business priorities
+- Facilitated quarterly Product Delivery meetings and Product Strategy sessions between TRP and FIS Global, establishing a prioritized 3–12 month roadmap aligned to business priorities
 - Led OKR development and mid-PI reviews, creating a value stream model mapping all 26 squads to journey, platform, and ops teams
 - Finalized 2026 team structure for 185 members with a 335,000-hour resource budget in PlanView; designed hours-estimation methodology correcting a 30% underestimation
 - Developed PI mitigation plans — identifying and escalating 4 critical dependencies early
@@ -208,8 +208,8 @@ Thapar University, 2018
     // Handle download resume action
     if (question === "Download resume") {
       const link = document.createElement('a');
-      link.href = '/resume.pdf';
-      link.download = 'Sachit-Sharma-pm-resume.pdf';
+      link.href = '/Sachit-Sharma-AI-PM-Resume.pdf';
+      link.download = 'Sachit-Sharma-AI-PM-Resume.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
