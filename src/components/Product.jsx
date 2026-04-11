@@ -51,7 +51,7 @@ export default function Product() {
         >
           <div className="inline-grid grid-cols-2 rounded-2xl border border-zinc-800 overflow-hidden text-sm font-medium divide-x divide-zinc-800">
             <a
-              href="#about"
+              href="#experience"
               className="flex items-center gap-3 px-6 py-4 bg-zinc-900/60 hover:bg-zinc-800/80 transition-colors cursor-pointer group"
               title="See my work experience"
             >

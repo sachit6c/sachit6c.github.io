@@ -162,10 +162,17 @@ Thapar University, 2018
     setInput('');
     setIsLoading(true);
 
+    const apiKey = import.meta.env.VITE_GROQ_API_KEY;
+    if (!apiKey) {
+      setMessages((prev) => [...prev, { role: 'assistant', content: "The AI chatbot isn't configured yet. Reach out directly at work.sachitsharma@gmail.com" }]);
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           messages: [
@@ -189,7 +196,7 @@ Thapar University, 2018
         content: data.choices[0].message.content,
       };
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch (error) {
+    } catch (_error) {
       setMessages((prev) => [
         ...prev,
         {
@@ -208,8 +215,8 @@ Thapar University, 2018
     // Handle download resume action
     if (question === "Download resume") {
       const link = document.createElement('a');
-      link.href = '/Sachit-Sharma-AI-PM-Resume.pdf';
-      link.download = 'Sachit-Sharma-AI-PM-Resume.pdf';
+      link.href = '/resume.pdf';
+      link.download = 'Sachit-Sharma-pm-resume.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -224,10 +231,17 @@ Thapar University, 2018
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
 
+    const apiKey = import.meta.env.VITE_GROQ_API_KEY;
+    if (!apiKey) {
+      setMessages((prev) => [...prev, { role: 'assistant', content: "The AI chatbot isn't configured yet. Reach out directly at work.sachitsharma@gmail.com" }]);
+      setIsLoading(false);
+      return;
+    }
+
     try {
-      const response = await fetch('/api/chat', {
+      const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
         body: JSON.stringify({
           model: 'llama-3.3-70b-versatile',
           messages: [
@@ -253,7 +267,7 @@ Thapar University, 2018
       };
 
       setMessages((prev) => [...prev, assistantMessage]);
-    } catch (error) {
+    } catch (_error) {
       setMessages((prev) => [
         ...prev,
         {

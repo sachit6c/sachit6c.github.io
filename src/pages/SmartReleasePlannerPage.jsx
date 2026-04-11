@@ -223,7 +223,7 @@ export default function SmartReleasePlannerPage() {
           </div>
         </div>
 
-        {/* ── The Problem ── */
+        {/* ── The Problem ── */}
         <section className="mb-24">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-10">The problem I was solving</h2>
           <div className="bg-zinc-950 border border-zinc-800 rounded-2xl p-8 mb-6">

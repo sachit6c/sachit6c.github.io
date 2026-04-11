@@ -87,7 +87,7 @@ export default function Navigation() {
     });
 
     return () => observer.disconnect();
-  }, [isHomePage]);
+  }, [isHomePage]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleNavClick = (href, id) => {
     setIsOpen(false);

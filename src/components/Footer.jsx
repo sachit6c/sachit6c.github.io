@@ -8,7 +8,7 @@ export default function Footer() {
           © {currentYear} Sachit Sharma. All rights reserved.
         </p>
         <p className="text-xs text-zinc-700">
-          Built with React + Vite + Tailwind + Claude AI
+          Built with React + Vite + Tailwind
         </p>
       </div>
     </footer>

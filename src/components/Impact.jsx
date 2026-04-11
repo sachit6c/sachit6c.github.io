@@ -8,7 +8,7 @@ export default function Impact() {
       value: '26 squads',
       label: 'Program Scale',
       context: '185 members across 3 PI cycles — serving as Onsite Delivery Lead and orchestrating 335K budgeted hours.',
-      domain: 'Deloitte · TRP/FIS Program',
+      domain: 'Deloitte · TRP / FIS Global Program',
     },
     {
       value: '91%',

@@ -1,13 +1,23 @@
 import { useState, useEffect, useRef } from 'react'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
-// =============================================================================
-// CONFIG — swap ACTIVE_VARIANT to preview each client interaction model:
-//   'timeline'  → scroll-driven vertical timeline (default)
-//   'tabs'      → sticky logo rail with synced scrolling sections
-//   'grid'      → logo grid with animated expand-on-click panel
-// =============================================================================
-const ACTIVE_VARIANT = 'timeline'
+import attLogo from '../assets/logos/att.svg?raw'
+import chevronLogo from '../assets/logos/chevron.svg?raw'
+import lillyLogo from '../assets/logos/elililly.svg?raw'
+import fisLogo from '../assets/logos/fis.svg?raw'
+import hpeLogo from '../assets/logos/hewlettpackardenterprise.svg?raw'
+import pfizerLogo from '../assets/logos/pfizer.svg?raw'
+import sonyLogo from '../assets/logos/sony2.svg?raw'
+
+const LOGO_MAP = {
+  fis: fisLogo,
+  pfizer: pfizerLogo,
+  lilly: lillyLogo,
+  hpe: hpeLogo,
+  att: attLogo,
+  chevron: chevronLogo,
+  sony: sonyLogo,
+}
 
 // =============================================================================
 // DATA
@@ -15,12 +25,12 @@ const ACTIVE_VARIANT = 'timeline'
 const CLIENTS = [
   {
     id: 'fis',
-    name: 'FIS',
-    subtitle: 'TRP / FIS Program',
+    name: 'FIS Global',
+    subtitle: 'TRP / FIS Global Program',
     period: '2025',
     role: 'Onsite Delivery Lead',
     industry: 'Financial Services',
-    brandColor: '#4A9EFF',
+    brandColor: '#3DB54A',
     achievements: [
       'Led 26 squads (185 members, 335K budgeted hours) across 3 complete PI planning cycles — 91% on-time delivery',
       'Secured a $1.75M SOW extension into 2026 through demonstrated program excellence and client satisfaction',
@@ -104,7 +114,7 @@ const CLIENTS = [
     subtitle: 'SAP Commerce (Hybris)',
     period: '2018',
     role: 'Hybris Backend Developer',
-    industry: 'Consumer Electronics',
+    industry: 'Gaming',
     brandColor: '#CCCCDD',
     achievements: [
       "Built backend modules for Sony's SAP Commerce Cloud (Hybris) enterprise e-commerce implementation",
@@ -118,7 +128,7 @@ const METRICS = [
     value: '26 squads',
     label: 'Program Scale',
     context: '185 members across 3 PI cycles — Onsite Delivery Lead orchestrating 335K budgeted hours.',
-    domain: 'Deloitte · TRP/FIS',
+    domain: 'Deloitte · TRP / FIS Global',
   },
   {
     value: '91%',
@@ -144,382 +154,406 @@ const METRICS = [
 // LOGO MARKS
 // =============================================================================
 function LogoMark({ id, color, className = '' }) {
-  const baseText = { fontFamily: "'Helvetica Neue', Arial, sans-serif", fill: color }
-  switch (id) {
-    case 'fis':
-      return (
-        <svg viewBox="0 0 72 30" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text y="24" style={{ ...baseText, fontSize: '28px', fontWeight: '900', letterSpacing: '-0.5px' }}>FIS</text>
-        </svg>
-      )
-    case 'pfizer':
-      return (
-        <svg viewBox="0 0 110 30" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text y="24" style={{ ...baseText, fontSize: '24px', fontWeight: '700', fontStyle: 'italic' }}>Pfizer</text>
-        </svg>
-      )
-    case 'lilly':
-      return (
-        <svg viewBox="0 0 88 30" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text y="24" style={{ ...baseText, fontSize: '24px', fontWeight: '700' }}>Lilly</text>
-        </svg>
-      )
-    case 'hpe':
-      return (
-        <svg viewBox="0 0 68 30" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text y="24" style={{ ...baseText, fontSize: '24px', fontWeight: '700' }}>hpe</text>
-        </svg>
-      )
-    case 'att':
-      return (
-        <svg viewBox="0 0 112 30" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="13" cy="15" r="11" stroke={color} strokeWidth="1.8" fill="none" />
-          <ellipse cx="13" cy="15" rx="5.5" ry="11" stroke={color} strokeWidth="1.8" fill="none" />
-          <line x1="2" y1="15" x2="24" y2="15" stroke={color} strokeWidth="1.8" />
-          <line x1="4.5" y1="9" x2="21.5" y2="9" stroke={color} strokeWidth="1.2" />
-          <line x1="4.5" y1="21" x2="21.5" y2="21" stroke={color} strokeWidth="1.2" />
-          <text x="31" y="21" style={{ ...baseText, fontSize: '16px', fontWeight: '800', letterSpacing: '0.5px' }}>AT&amp;T</text>
-        </svg>
-      )
-    case 'chevron':
-      return (
-        <svg viewBox="0 0 170 30" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 5 L14 22" stroke="#4A7AFF" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-          <path d="M25 5 L14 22" stroke="#FF6633" strokeWidth="4.5" strokeLinecap="round" fill="none" />
-          <text x="36" y="21" style={{ ...baseText, fontSize: '15px', fontWeight: '800', letterSpacing: '2px', fill: '#4A7AFF' }}>CHEVRON</text>
-        </svg>
-      )
-    case 'sony':
-      return (
-        <svg viewBox="0 0 95 30" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text y="23" style={{ ...baseText, fontSize: '21px', fontWeight: '700', letterSpacing: '4px' }}>SONY</text>
-        </svg>
-      )
-    default:
-      return null
+  const raw = LOGO_MAP[id]
+  if (!raw) return null
+  let svg = raw
+  // If SVG has width/height but no viewBox, create viewBox from width/height
+  if (!svg.includes('viewBox')) {
+    const w = svg.match(/width="([^"]+)"/)
+    const h = svg.match(/height="([^"]+)"/)
+    if (w && h) {
+      svg = svg.replace(/<svg\b/, `<svg viewBox="0 0 ${parseFloat(w[1])} ${parseFloat(h[1])}"`)
+    }
   }
+  // Replace currentColor with explicit white for dark backgrounds (all forms)
+  svg = svg.replaceAll('currentColor', '#FFFFFF')
+  // FIS: override to FIS green
+  if (id === 'fis') {
+    svg = svg.replaceAll('fill:#FFFFFF', 'fill:#3DB54A')
+    svg = svg.replaceAll('fill="#FFFFFF"', 'fill="#3DB54A"')
+  }
+  // Pfizer: use Pfizer blue for currentColor-derived fills instead of white
+  if (id === 'pfizer') {
+    svg = svg.replaceAll('fill:#FFFFFF', 'fill:#00AAFF')
+    svg = svg.replaceAll('fill="#FFFFFF"', 'fill="#00AAFF"')
+  }
+  // AT&T: path "letters" has no fill (inherits black) — set SVG root fill to white
+  if (id === 'att') {
+    svg = svg.replace(/<svg\b/, '<svg fill="#FFFFFF"')
+  }
+  // Remove explicit width/height and add responsive sizing
+  svg = svg
+    .replace(/\bwidth="[^"]*"/, '')
+    .replace(/\bheight="[^"]*"/, '')
+    .replace(/<svg\b/, '<svg style="height:100%;width:100%;display:block"')
+  return (
+    <span
+      className={className}
+      style={{ color: color || '#FFFFFF', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+      dangerouslySetInnerHTML={{ __html: svg }}
+    />
+  )
 }
 
+
 // =============================================================================
-// VARIANT A — Scroll-driven vertical timeline
+// TIMELINE — Horizontal interactive timeline carousel
 // =============================================================================
 function TimelineVariant() {
-  const rowRefs = useRef([])
-  const [visibleRows, setVisibleRows] = useState(new Set())
-  const [lineRef, lineVisible] = useScrollAnimation()
+  const [activeIndex, setActiveIndex] = useState(0)
+  const trackRef = useRef(null)
+  const swipeStartX = useRef(null)
+  const wheelAccRef = useRef(0)
+  const wheelLockRef = useRef(false)
+  const [sectionRef, sectionVisible] = useScrollAnimation()
 
+  const NODE_PX = 152
+  const client = CLIENTS[activeIndex]
+
+  const goTo = (idx) => {
+    const next = Math.max(0, Math.min(CLIENTS.length - 1, idx))
+    if (next === activeIndex) return
+    setActiveIndex(next)
+  }
+
+  // Trackpad horizontal-swipe navigation
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        setVisibleRows((prev) => {
-          const next = new Set(prev)
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              next.add(Number(entry.target.dataset.rowIndex))
-              observer.unobserve(entry.target)
-            }
-          })
-          return next
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -60px 0px' },
-    )
-    rowRefs.current.forEach((el) => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+    const el = sectionRef.current
+    if (!el) return
+    const onWheel = (e) => {
+      const absX = Math.abs(e.deltaX)
+      const absY = Math.abs(e.deltaY)
+      // Only intercept when horizontal scroll is the dominant axis
+      if (absX < 12 || absX < absY) return
+      e.preventDefault()
+      if (wheelLockRef.current) return
+      wheelAccRef.current += e.deltaX
+      if (Math.abs(wheelAccRef.current) > 40) {
+        const dir = wheelAccRef.current > 0 ? 1 : -1
+        setActiveIndex(prev => Math.max(0, Math.min(CLIENTS.length - 1, prev + dir)))
+        wheelAccRef.current = 0
+        wheelLockRef.current = true
+        setTimeout(() => { wheelLockRef.current = false }, 550)
+      }
+    }
+    el.addEventListener('wheel', onWheel, { passive: false })
+    return () => el.removeEventListener('wheel', onWheel)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Keep active node centered in the scrollable track
+  useEffect(() => {
+    const el = trackRef.current
+    if (!el) return
+    const center = activeIndex * NODE_PX + NODE_PX / 2 - el.clientWidth / 2
+    el.scrollTo({ left: Math.max(0, center), behavior: 'smooth' })
+  }, [activeIndex])
+
+  // Keyboard navigation (active when section is visible)
+  useEffect(() => {
+    if (!sectionVisible) return
+    const onKey = (e) => {
+      if (e.key === 'ArrowLeft') goTo(activeIndex - 1)
+      if (e.key === 'ArrowRight') goTo(activeIndex + 1)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [activeIndex, sectionVisible]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Touch / pointer swipe
+  const onPointerDown = (e) => { swipeStartX.current = e.clientX }
+  const onPointerUp = (e) => {
+    if (swipeStartX.current === null) return
+    const delta = swipeStartX.current - e.clientX
+    if (Math.abs(delta) > 48) goTo(delta > 0 ? activeIndex + 1 : activeIndex - 1)
+    swipeStartX.current = null
+  }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="relative" ref={lineRef}>
-        <div
-          className="absolute left-0 top-8 bottom-4 w-px bg-zinc-800/80"
-          style={{
-            transformOrigin: 'top',
-            transform: lineVisible ? 'scaleY(1)' : 'scaleY(0)',
-            transition: 'transform 2.2s cubic-bezier(0.4, 0, 0.2, 1)',
-          }}
-        />
+    <div
+      ref={sectionRef}
+      className={`scroll-hidden ${sectionVisible ? 'scroll-visible' : ''}`}
+    >
+      {/* ── Horizontal timeline track ── */}
+      <div className="relative mb-8" style={{ userSelect: 'none' }}>
 
-        {CLIENTS.map((client, i) => (
+        {/* Left arrow */}
+        <button
+          onClick={() => goTo(activeIndex - 1)}
+          disabled={activeIndex === 0}
+          aria-label="Previous client"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full border border-zinc-800 bg-black text-zinc-400 hover:text-white hover:border-zinc-600 hover:bg-zinc-900 transition-all duration-200 disabled:opacity-20 disabled:pointer-events-none"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M9 11L5 7l4-4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+
+        {/* Right arrow */}
+        <button
+          onClick={() => goTo(activeIndex + 1)}
+          disabled={activeIndex === CLIENTS.length - 1}
+          aria-label="Next client"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full border border-zinc-800 bg-black text-zinc-400 hover:text-white hover:border-zinc-600 hover:bg-zinc-900 transition-all duration-200 disabled:opacity-20 disabled:pointer-events-none"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M5 3l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        </button>
+
+        {/* Scrollable track */}
+        <div
+          ref={trackRef}
+          className="overflow-x-auto no-scrollbar mx-12 relative"
+          onPointerDown={onPointerDown}
+          onPointerUp={onPointerUp}
+          style={{ cursor: 'grab' }}
+        >
+          {/* Edge fade masks */}
           <div
-            key={client.id}
-            ref={(el) => { rowRefs.current[i] = el }}
-            data-row-index={i}
-            className="pl-10 pb-12 relative"
-            style={{
-              opacity: visibleRows.has(i) ? 1 : 0,
-              transform: visibleRows.has(i) ? 'translateY(0)' : 'translateY(24px)',
-              transition: `opacity 0.65s cubic-bezier(0.4,0,0.2,1) ${i * 70}ms, transform 0.65s cubic-bezier(0.4,0,0.2,1) ${i * 70}ms`,
-            }}
+            className="pointer-events-none absolute inset-y-0 left-0 w-16 z-10"
+            style={{ background: 'linear-gradient(to right, #000 0%, transparent 100%)' }}
+          />
+          <div
+            className="pointer-events-none absolute inset-y-0 right-0 w-16 z-10"
+            style={{ background: 'linear-gradient(to left, #000 0%, transparent 100%)' }}
+          />
+
+          {/* Node row — fixed height so we can position elements relative to the line */}
+          <div
+            className="relative flex"
+            style={{ width: `${CLIENTS.length * NODE_PX}px`, height: '148px' }}
           >
+            {/* Base timeline line at y=72 */}
             <div
-              className="absolute left-[-5px] top-[22px] w-2.5 h-2.5 rounded-full border-2 bg-black z-10"
-              style={{ borderColor: client.brandColor }}
+              className="absolute left-0 right-0"
+              style={{ top: '72px', height: '2px', backgroundColor: '#3f3f46' }}
+            />
+            {/* Colored progress fill — from first node center to active node center */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '71px',
+                height: '4px',
+                left: `${NODE_PX / 2}px`,
+                width: `${Math.max(0, activeIndex) * NODE_PX}px`,
+                background: `linear-gradient(to right, ${CLIENTS[0].brandColor}90, ${CLIENTS[activeIndex].brandColor})`,
+                borderRadius: '2px',
+                transition: 'width 0.45s cubic-bezier(0.4,0,0.2,1)',
+                zIndex: 1,
+              }}
             />
 
-            <div className="flex items-center gap-2.5 mb-4 flex-wrap">
-              <span className="text-xs font-semibold text-zinc-500 tracking-wider uppercase">{client.period}</span>
+            {CLIENTS.map((c, i) => {
+              const isActive = i === activeIndex
+              const isPast = i < activeIndex
+              return (
+                <button
+                  key={c.id}
+                  onClick={() => goTo(i)}
+                  aria-pressed={isActive}
+                  aria-label={`${c.name} — ${c.period}`}
+                  className="relative flex-shrink-0 focus:outline-none group"
+                  style={{ width: `${NODE_PX}px`, height: '148px' }}
+                >
+                  {/* Name + industry — sits in upper half, pinned to bottom */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: '58px',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'flex-end',
+                      paddingBottom: '12px',
+                      opacity: isActive ? 1 : 0.75,
+                      transform: isActive ? 'translateY(0)' : 'translateY(3px)',
+                      transition: 'opacity 0.4s ease, transform 0.4s ease',
+                    }}
+                  >
+                    <span
+                      className="text-[11px] font-bold whitespace-nowrap leading-tight"
+                      style={{ color: isActive ? c.brandColor : `${c.brandColor}cc` }}
+                    >
+                      {c.name}
+                    </span>
+                    <span className="text-[9px] whitespace-nowrap mt-[3px] uppercase tracking-wider" style={{ color: isActive ? '#a1a1aa' : '#71717a' }}>
+                      {c.industry}
+                    </span>
+                  </div>
+
+                  {/* Dot — centered on the line (y=72) */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '72px',
+                      left: '50%',
+                      transform: 'translate(-50%, -50%)',
+                      borderRadius: '50%',
+                      width: isActive ? '20px' : '10px',
+                      height: isActive ? '20px' : '10px',
+                      backgroundColor: isActive
+                        ? c.brandColor
+                        : isPast
+                        ? `${c.brandColor}70`
+                        : `${c.brandColor}22`,
+                      border: `2px solid ${
+                        isActive ? c.brandColor : isPast ? c.brandColor : `${c.brandColor}80`
+                      }`,
+                      boxShadow: isActive
+                        ? `0 0 24px ${c.brandColor}cc, 0 0 48px ${c.brandColor}55`
+                        : isPast
+                        ? `0 0 8px ${c.brandColor}55`
+                        : 'none',
+                      zIndex: 10,
+                      transition:
+                        'width 0.4s cubic-bezier(0.4,0,0.2,1), height 0.4s cubic-bezier(0.4,0,0.2,1), background-color 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease',
+                    }}
+                  />
+
+                  {/* Hover ring for inactive nodes */}
+                  {!isActive && (
+                    <div
+                      className="opacity-0 group-hover:opacity-100 rounded-full"
+                      style={{
+                        position: 'absolute',
+                        top: '72px',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        width: '26px',
+                        height: '26px',
+                        border: `1px solid ${c.brandColor}45`,
+                        transition: 'opacity 0.2s ease',
+                        zIndex: 9,
+                      }}
+                    />
+                  )}
+
+                  {/* Period — sits in lower half, pinned to top */}
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: '82px',
+                      left: 0,
+                      right: 0,
+                      textAlign: 'center',
+                      opacity: isActive ? 1 : 0.85,
+                      transition: 'opacity 0.4s ease',
+                    }}
+                  >
+                    <span
+                      className="text-[10px] font-mono whitespace-nowrap"
+                      style={{ color: isActive ? '#e4e4e7' : '#a1a1aa' }}
+                    >
+                      {c.period}
+                    </span>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+        </div>
+      </div>
+
+      {/* ── Pill progress indicator ── */}
+      <div className="flex items-center justify-center gap-1.5 mb-10">
+        {CLIENTS.map((c, i) => (
+          <button
+            key={c.id}
+            onClick={() => goTo(i)}
+            aria-label={`Go to ${c.name}`}
+            className="rounded-full transition-all duration-300"
+            style={{
+              height: '5px',
+              width: i === activeIndex ? '22px' : '5px',
+              backgroundColor: i === activeIndex ? client.brandColor : `${CLIENTS[i].brandColor}55`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* ── Detail card ── */}
+      <div
+        key={activeIndex}
+        className="rounded-3xl overflow-hidden border"
+        style={{
+          backgroundColor: '#0a0a0a',
+          borderColor: `${client.brandColor}22`,
+          animation: 'htCarouselIn 0.42s cubic-bezier(0.4,0,0.2,1) forwards',
+        }}
+      >
+        {/* Brand accent top bar */}
+        <div style={{ height: '3px', backgroundColor: client.brandColor, opacity: 0.75 }} />
+
+        <div className="p-6 lg:p-8">
+          {/* Header: logo + badges */}
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
+            <div>
+              <LogoMark id={client.id} color={client.brandColor} className="h-9 w-auto mb-2" />
+              <p className="text-zinc-500 text-sm">{client.subtitle}</p>
+            </div>
+            <div className="flex gap-2 flex-wrap sm:justify-end items-start">
               <span
-                className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
+                className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
                 style={{ color: client.brandColor, backgroundColor: `${client.brandColor}18` }}
               >
                 {client.industry}
               </span>
-            </div>
-
-            <div className="bg-zinc-950 border border-zinc-800/60 rounded-3xl p-6 lg:p-8 hover:border-zinc-700/50 transition-colors duration-300">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-                <div>
-                  <LogoMark id={client.id} color={client.brandColor} className="h-8 w-auto mb-2" />
-                  <p className="text-zinc-500 text-sm">{client.subtitle}</p>
-                </div>
-                <p className="text-sm font-medium text-zinc-300 sm:text-right shrink-0 sm:max-w-[220px]">{client.role}</p>
-              </div>
-
-              <ul className="space-y-3 mb-6">
-                {client.achievements.map((a, j) => (
-                  <li key={j} className="flex items-start gap-3 text-sm text-zinc-400 leading-relaxed">
-                    <span
-                      className="mt-[7px] w-1 h-1 rounded-full shrink-0"
-                      style={{ backgroundColor: client.brandColor, opacity: 0.6 }}
-                    />
-                    {a}
-                  </li>
-                ))}
-              </ul>
-
-              <div
-                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl"
-                style={{ color: client.brandColor, backgroundColor: `${client.brandColor}12`, border: `1px solid ${client.brandColor}25` }}
-              >
-                <span className="text-lg font-bold">{client.metric.value}</span>
-                <span className="text-xs font-medium opacity-70">{client.metric.label}</span>
-              </div>
+              <span className="text-[11px] font-medium text-zinc-500 px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800">
+                {client.period}
+              </span>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  )
-}
 
-// =============================================================================
-// VARIANT B — Sticky logo tabs, scroll-synced
-// =============================================================================
-function TabsVariant() {
-  const [activeId, setActiveId] = useState(CLIENTS[0].id)
-  const sectionRefs = useRef([])
+          {/* Role */}
+          <p className="text-sm font-semibold text-zinc-300 mb-6">{client.role}</p>
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveId(entry.target.dataset.clientId)
-        })
-      },
-      { rootMargin: '-30% 0px -60% 0px', threshold: 0 },
-    )
-    sectionRefs.current.forEach((el) => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
+          {/* Achievements */}
+          <ul className="space-y-3 mb-7">
+            {client.achievements.map((a, j) => (
+              <li key={j} className="flex items-start gap-3 text-sm text-zinc-400 leading-relaxed">
+                <span
+                  className="mt-[7px] w-1 h-1 rounded-full shrink-0"
+                  style={{ backgroundColor: client.brandColor, opacity: 0.75 }}
+                />
+                {a}
+              </li>
+            ))}
+          </ul>
 
-  const scrollToClient = (id) => {
-    const idx = CLIENTS.findIndex((c) => c.id === id)
-    const el = sectionRefs.current[idx]
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 120
-      window.scrollTo({ top, behavior: 'smooth' })
-    }
-  }
-
-  return (
-    <div>
-      <div className="sticky top-14 z-40 bg-black/95 backdrop-blur-md border-b border-zinc-800/60 -mx-6 px-6 lg:-mx-12 lg:px-12">
-        <div className="flex items-center gap-1 overflow-x-auto no-scrollbar py-3 max-w-7xl mx-auto">
-          {CLIENTS.map((client) => {
-            const isActive = activeId === client.id
-            return (
-              <button
-                key={client.id}
-                onClick={() => scrollToClient(client.id)}
-                className="shrink-0 flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300"
-                style={{
-                  opacity: isActive ? 1 : 0.35,
-                  backgroundColor: isActive ? `${client.brandColor}15` : 'transparent',
-                  transform: isActive ? 'scale(1.02)' : 'scale(0.97)',
-                }}
-                aria-pressed={isActive}
-              >
-                <LogoMark id={client.id} color={isActive ? client.brandColor : '#71717a'} className="h-6 w-auto" />
-              </button>
-            )
-          })}
+          {/* Footer row: metric + position counter */}
+          <div className="flex items-center justify-between flex-wrap gap-4">
+            <div
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-xl"
+              style={{
+                color: client.brandColor,
+                backgroundColor: `${client.brandColor}12`,
+                border: `1px solid ${client.brandColor}25`,
+              }}
+            >
+              <span className="text-lg font-bold">{client.metric.value}</span>
+              <span className="text-xs font-medium opacity-70">{client.metric.label}</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-zinc-600">
+              <span className="font-mono tabular-nums">{activeIndex + 1} / {CLIENTS.length}</span>
+              <span className="hidden sm:inline opacity-60">· swipe, trackpad, or ← → keys</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto">
-        {CLIENTS.map((client, i) => (
-          <div
-            key={client.id}
-            ref={(el) => { sectionRefs.current[i] = el }}
-            data-client-id={client.id}
-            className="min-h-[65vh] py-20 flex flex-col justify-center"
-          >
-            <div className="flex items-center gap-2.5 mb-6 flex-wrap">
-              <span className="text-xs font-semibold text-zinc-500 tracking-wider uppercase">{client.period}</span>
-              <span
-                className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full"
-                style={{ color: client.brandColor, backgroundColor: `${client.brandColor}18` }}
-              >{client.industry}</span>
-            </div>
-
-            <LogoMark id={client.id} color={client.brandColor} className="h-12 w-auto mb-3" />
-            <p className="text-zinc-500 text-sm mb-1">{client.subtitle}</p>
-            <p className="text-zinc-300 text-sm font-medium mb-10">{client.role}</p>
-
-            <div className="space-y-5 mb-10">
-              {client.achievements.map((a, j) => (
-                <div key={j} className="flex items-start gap-4">
-                  <div className="mt-[7px] w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: client.brandColor }} />
-                  <p className="text-zinc-300 leading-relaxed">{a}</p>
-                </div>
-              ))}
-            </div>
-
-            <div
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl self-start"
-              style={{ backgroundColor: `${client.brandColor}12`, border: `1px solid ${client.brandColor}30` }}
-            >
-              <span className="text-3xl font-bold" style={{ color: client.brandColor }}>{client.metric.value}</span>
-              <span className="text-sm text-zinc-400">{client.metric.label}</span>
-            </div>
-
-            {i < CLIENTS.length - 1 && <div className="mt-20 border-t border-zinc-800/40" />}
-          </div>
-        ))}
-      </div>
+      <style>{`
+        @keyframes htCarouselIn {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   )
 }
 
-// =============================================================================
-// VARIANT C — Logo grid → expand panel on click
-// =============================================================================
-function GridVariant() {
-  const [selectedId, setSelectedId] = useState(null)
-  const panelRef = useRef(null)
-  const cardRefs = useRef([])
-  const [visibleCards, setVisibleCards] = useState(new Set())
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        setVisibleCards((prev) => {
-          const next = new Set(prev)
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              next.add(Number(entry.target.dataset.cardIndex))
-              observer.unobserve(entry.target)
-            }
-          })
-          return next
-        })
-      },
-      { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
-    )
-    cardRefs.current.forEach((el) => el && observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
-
-  const handleSelect = (id) => {
-    if (selectedId === id) {
-      setSelectedId(null)
-    } else {
-      setSelectedId(id)
-      setTimeout(() => panelRef.current?.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 150)
-    }
-  }
-
-  const selected = CLIENTS.find((c) => c.id === selectedId)
-
-  return (
-    <div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-3">
-        {CLIENTS.map((client, i) => {
-          const isSelected = selectedId === client.id
-          const isVisible = visibleCards.has(i)
-          return (
-            <button
-              key={client.id}
-              ref={(el) => { cardRefs.current[i] = el }}
-              data-card-index={i}
-              onClick={() => handleSelect(client.id)}
-              className="flex flex-col items-center justify-center gap-3 aspect-[4/3] rounded-3xl border"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? (isSelected ? 'scale(1.03)' : 'scale(1)') : 'translateY(20px)',
-                transition: `opacity 0.55s cubic-bezier(0.4,0,0.2,1) ${i * 60}ms, transform 0.55s cubic-bezier(0.4,0,0.2,1) ${i * 60}ms, border-color 0.3s, box-shadow 0.3s, background-color 0.3s`,
-                backgroundColor: isSelected ? `${client.brandColor}10` : 'rgb(9,9,11)',
-                borderColor: isSelected ? `${client.brandColor}55` : 'rgba(63,63,70,0.5)',
-                boxShadow: isSelected ? `0 0 0 1px ${client.brandColor}30, 0 8px 32px ${client.brandColor}18` : 'none',
-              }}
-              aria-pressed={isSelected}
-            >
-              <LogoMark id={client.id} color={client.brandColor} className="h-8 w-auto" />
-              <span className="text-[11px] text-zinc-500 font-medium">{client.period}</span>
-            </button>
-          )
-        })}
-      </div>
-
-      <div
-        ref={panelRef}
-        className="overflow-hidden"
-        style={{ maxHeight: selected ? '900px' : '0px', transition: 'max-height 0.55s cubic-bezier(0.4, 0, 0.2, 1)' }}
-      >
-        {selected && (
-          <div
-            className="rounded-3xl border p-6 lg:p-8 mt-3"
-            style={{ backgroundColor: `${selected.brandColor}08`, borderColor: `${selected.brandColor}28` }}
-          >
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-              <div>
-                <LogoMark id={selected.id} color={selected.brandColor} className="h-10 w-auto mb-2" />
-                <p className="text-zinc-500 text-sm">{selected.subtitle}</p>
-              </div>
-              <div className="flex gap-2 flex-wrap sm:justify-end">
-                <span
-                  className="text-[11px] font-semibold px-2.5 py-1 rounded-full"
-                  style={{ color: selected.brandColor, backgroundColor: `${selected.brandColor}18` }}
-                >{selected.industry}</span>
-                <span className="text-[11px] font-medium text-zinc-500 px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800">{selected.period}</span>
-              </div>
-            </div>
-
-            <p className="text-sm font-medium text-zinc-300 mb-6">{selected.role}</p>
-
-            <div className="space-y-3 mb-6">
-              {selected.achievements.map((a, j) => (
-                <div key={j} className="flex items-start gap-3">
-                  <div className="mt-[7px] w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: selected.brandColor }} />
-                  <p className="text-zinc-300 text-sm leading-relaxed">{a}</p>
-                </div>
-              ))}
-            </div>
-
-            <div
-              className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl"
-              style={{ backgroundColor: `${selected.brandColor}15`, border: `1px solid ${selected.brandColor}25` }}
-            >
-              <span className="text-2xl font-bold" style={{ color: selected.brandColor }}>{selected.metric.value}</span>
-              <span className="text-xs text-zinc-400 font-medium">{selected.metric.label}</span>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
 
 // =============================================================================
 // MAIN EXPORT
@@ -559,18 +593,16 @@ export default function Experience() {
           <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-black to-transparent" />
           <div className="flex items-center animate-marquee pause-marquee py-2">
             {[...CLIENTS, ...CLIENTS].map((client, i) => (
-              <div key={i} className="flex items-center shrink-0 px-10">
-                <LogoMark id={client.id} color={client.brandColor} className="h-7 w-auto" />
+              <div key={i} className="flex items-center justify-center shrink-0 w-44">
+                <LogoMark id={client.id} color={client.brandColor} className="h-8 max-w-[120px]" />
               </div>
             ))}
           </div>
         </div>
 
-        {/* ── Active client variant ── */}
+        {/* ── Client timeline ── */}
         <div className="mb-32">
-          {ACTIVE_VARIANT === 'timeline' && <TimelineVariant />}
-          {ACTIVE_VARIANT === 'tabs' && <TabsVariant />}
-          {ACTIVE_VARIANT === 'grid' && <GridVariant />}
+          <TimelineVariant />
         </div>
 
         {/* ── Divider ── */}

@@ -1299,7 +1299,7 @@ export default function HealthcareCaseStudy() {
 }
 
 // Helper Components
-function MetricCard({ value, label, subtitle, trend }) {
+function MetricCard({ value, label, subtitle }) {
   return (
     <div className="bg-zinc-900/50 border border-zinc-800 rounded-lg p-5">
       <div className="text-3xl font-bold text-emerald-400 mb-2">{value}</div>

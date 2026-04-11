@@ -92,9 +92,17 @@ export default function About() {
             {/* Education */}
             <div className="mt-10">
               <h3 className="text-xl font-semibold text-white mb-6">Education</h3>
-              <div>
-                <p className="text-zinc-200 font-semibold">Thapar University</p>
-                <p className="text-zinc-400 text-sm">Bachelor of Technology, Electronics &amp; Instrumentation Control Engineering &middot; 2018</p>
+              <div className="space-y-6">
+                <div>
+                  <p className="text-zinc-200 font-semibold">Thapar University</p>
+                  <p className="text-zinc-400 text-sm">Bachelor of Technology, Electronics &amp; Instrumentation Control Engineering &middot; 2018</p>
+                  <p className="text-zinc-500 text-xs mt-1">Scholarship Student</p>
+                </div>
+                <div>
+                  <p className="text-zinc-200 font-semibold">DRDO — Defence Research &amp; Development Organisation</p>
+                  <p className="text-zinc-400 text-sm">Engineering Intern &middot; 2017</p>
+                  <p className="text-zinc-500 text-xs mt-1">Automated wheelchair controlled by eye-tracking</p>
+                </div>
               </div>
             </div>
           </div>

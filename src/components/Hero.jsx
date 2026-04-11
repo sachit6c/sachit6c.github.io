@@ -55,8 +55,7 @@ export default function Hero() {
 
         {/* Subtext */}
         <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto leading-relaxed mb-8">
-          Senior Consultant &amp; Delivery Lead shipping products for Fortune 500 clients at Deloitte.<br className="hidden sm:block" />
-          Building F1 fantasy leagues and chess apps after hours.
+          Senior Consultant &amp; Delivery Lead shipping products for Fortune 500 clients at Deloitte. Building F1 fantasy leagues and chess apps after hours.
         </p>
 
         {/* CTAs */}
