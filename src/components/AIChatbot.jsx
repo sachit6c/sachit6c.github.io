@@ -6,7 +6,7 @@ export default function AIChatbot() {
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      content: "👋 Hi! I'm Sachit's AI assistant. Ask me anything about his experience, projects, or skills!",
+      content: "Hi! I'm Sachit's AI assistant. Ask me anything about his experience, projects, or skills!",
     },
   ]);
   const [input, setInput] = useState('');
@@ -18,7 +18,7 @@ export default function AIChatbot() {
   const initialMessages = [
     {
       role: 'assistant',
-      content: "👋 Hi! I'm Sachit's AI assistant. Ask me anything about his experience, projects, or skills!",
+      content: "Hi! I'm Sachit's AI assistant. Ask me anything about his experience, projects, or skills!",
     },
   ];
 
@@ -286,7 +286,7 @@ Thapar University, 2018
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-8 left-8 z-50 group"
+          className="hidden sm:block fixed bottom-8 left-8 z-50 group"
           aria-label="Open AI Chat"
         >
           {/* Main button - Apple style */}

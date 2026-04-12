@@ -21,21 +21,6 @@ const SideBuilds = () => {
       status: 'Live',
     },
     {
-      id: 'f1-fantasy',
-      title: 'F1 Fantasy League',
-      context: 'Personal — Formula 1 & Fantasy Sports',
-      description:
-        '27 seasons (2000–2026) of historical race data, head-to-head snake drafts, and a fully configurable points engine for position, pole, sprint, fastest lap, and penalties.',
-      stack: ['React', 'TypeScript', 'Vitest', 'Playwright', 'Vercel'],
-      learnings: [
-        'Building an offline-first CSV data model with dynamic season switching (DataStore.setSeason()) taught me to design for data-access patterns before writing any UI — the schema drove the product.',
-        '80%+ unit test coverage with Playwright E2E suites covering draft flow and mobile/tablet/desktop responsiveness showed me how investment in test infrastructure pays off in shipping confidence.',
-      ],
-      gradient: 'from-red-500 to-orange-500',
-      links: { live: 'https://f1-fantasy-v1.vercel.app/', github: null },
-      status: 'Live',
-    },
-    {
       id: 'partner-pomodoro',
       title: 'Partner Pomodoro',
       context: 'Personal — Productivity & Real-Time Collaboration',
@@ -50,10 +35,25 @@ const SideBuilds = () => {
       links: { live: 'https://rich-pomodoro.vercel.app/', github: null },
       status: 'Live',
     },
+    {
+      id: 'f1-fantasy',
+      title: 'F1 Fantasy League',
+      context: 'Personal — Formula 1 & Fantasy Sports',
+      description:
+        '27 seasons (2000–2026) of historical race data, head-to-head snake drafts, and a fully configurable points engine for position, pole, sprint, fastest lap, and penalties.',
+      stack: ['React', 'TypeScript', 'Vitest', 'Playwright', 'Vercel'],
+      learnings: [
+        'Building an offline-first CSV data model with dynamic season switching (DataStore.setSeason()) taught me to design for data-access patterns before writing any UI — the schema drove the product.',
+        '80%+ unit test coverage with Playwright E2E suites covering draft flow and mobile/tablet/desktop responsiveness showed me how investment in test infrastructure pays off in shipping confidence.',
+      ],
+      gradient: 'from-red-500 to-orange-500',
+      links: { live: 'https://f1-fantasy-v1.vercel.app/', github: null },
+      status: 'Live',
+    },
   ]
 
   return (
-    <section id="builds" className="py-32 px-6 lg:px-12 bg-zinc-950 scroll-mt-24">
+    <section id="builds" className="py-20 px-6 lg:px-12 bg-black scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div ref={headerRef} className={`text-center mb-16 scroll-hidden ${headerVisible ? 'scroll-visible' : ''}`}>

@@ -11,7 +11,7 @@ export default function Navigation() {
   const isHomePage = location.pathname === '/';
 
   const navLinks = [
-    { href: '#product', label: 'Work', id: 'product' },
+    { href: '#product', label: 'Projects', id: 'product' },
     { href: '#experience', label: 'Experience', id: 'experience' },
     { href: '#case-studies', label: 'Case Studies', id: 'case-studies' },
     { href: '#about', label: 'About', id: 'about' },

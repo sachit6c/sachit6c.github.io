@@ -41,13 +41,13 @@ export default function Product() {
   const [contentRef, contentVisible] = useScrollAnimation();
 
   return (
-    <section id="product" className="py-32 px-6 lg:px-12 bg-zinc-950 scroll-mt-24">
+    <section id="product" className="py-20 px-6 lg:px-12 bg-black scroll-mt-24">
       <div className="max-w-7xl mx-auto">
 
         {/* Day job / side builder identity */}
         <div
           ref={identityRef}
-          className={`flex justify-center mb-16 scroll-hidden ${identityVisible ? 'scroll-visible' : ''}`}
+          className="flex justify-center mb-12"
         >
           <div className="inline-grid grid-cols-2 rounded-2xl border border-zinc-800 overflow-hidden text-sm font-medium divide-x divide-zinc-800">
             <a

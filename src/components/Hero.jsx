@@ -48,9 +48,9 @@ export default function Hero() {
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.07] tracking-tight mb-6">
           <span className="text-white">Delivery Driver.</span>
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Systems Thinker.</span>
+          <span className="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Systems Thinker.</span>
           <br />
-          <span className="text-zinc-500">After-Hours Builder.</span>
+          <span className="whitespace-nowrap text-zinc-400">After-Hours Builder.</span>
         </h1>
 
         {/* Subtext */}

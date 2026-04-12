@@ -1,8 +1,8 @@
-import { Calendar, Linkedin, Github, Download, CheckCircle2, Target } from 'lucide-react';
+import { Calendar, Linkedin, Github, Download, CheckCircle2, Target, Mail } from 'lucide-react';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 lg:px-12 bg-zinc-950 scroll-mt-24">
+    <section id="contact" className="py-20 px-6 lg:px-12 bg-black scroll-mt-24">
       <div className="max-w-5xl mx-auto text-center">
         <h2 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-12 tracking-tight">
           Let's connect
@@ -71,7 +71,7 @@ export default function Contact() {
             </div>
 
             <div className="pt-6 border-t border-zinc-800">
-              <h4 className="text-sm font-semibold text-red-400 uppercase tracking-wider mb-3">Not a Good Fit</h4>
+              <h4 className="text-sm font-semibold text-zinc-500 uppercase tracking-wider mb-3">Not a Good Fit</h4>
               <p className="text-zinc-400 text-sm italic">Pure B2C/consumer social, non-technical PM roles, or companies without engineering/product investment.</p>
             </div>
           </div>
@@ -110,6 +110,15 @@ export default function Contact() {
           </a>
 
           <a
+            href="mailto:work.sachitsharma@gmail.com"
+            onClick={(e) => { e.preventDefault(); window.open('mailto:work.sachitsharma@gmail.com'); }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-900/50 transition-smooth hover:scale-[1.02]"
+          >
+            <Mail size={18} />
+            Email
+          </a>
+
+          <a
             href="/Sachit-Sharma-AI-PM-Resume.pdf"
             download="Sachit-Sharma-AI-PM-Resume.pdf"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-zinc-700 text-white rounded-full text-sm font-semibold hover:border-zinc-400 hover:bg-zinc-800 transition-smooth hover:scale-[1.02]"
@@ -120,6 +129,7 @@ export default function Contact() {
         </div>
 
         <p className="text-zinc-400 text-base font-medium">New York, NY · Open to Hybrid</p>
+        <p className="text-zinc-500 text-sm mt-1">work.sachitsharma@gmail.com</p>
       </div>
     </section>
   );

@@ -4,10 +4,10 @@ export default function About() {
   const [headerRef, headerVisible] = useScrollAnimation()
 
   return (
-    <section id="about" className="py-32 px-6 lg:px-12 bg-zinc-950 scroll-mt-24">
+    <section id="about" className="py-20 px-6 lg:px-12 bg-black scroll-mt-24">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div ref={headerRef} className={`text-center mb-24 scroll-hidden ${headerVisible ? 'scroll-visible' : ''}`}>
+        <div ref={headerRef} className="text-center mb-12">
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-semibold mb-8 tracking-tight">
             Under the hood.
           </h2>

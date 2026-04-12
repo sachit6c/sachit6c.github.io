@@ -1,26 +1,20 @@
-import { Smartphone } from 'lucide-react';
+import { Download } from 'lucide-react';
 
 export default function AppFloater() {
-  const scrollToProduct = () => {
-    const productSection = document.getElementById('product');
-    if (productSection) {
-      productSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
-    <button
-      onClick={scrollToProduct}
-      className="fixed bottom-8 right-8 z-50 group"
-      aria-label="Check out my app"
+    <a
+      href="/Sachit-Sharma-AI-PM-Resume.pdf"
+      download="Sachit-Sharma-AI-PM-Resume.pdf"
+      className="hidden sm:flex fixed bottom-8 right-8 z-50 group"
+      aria-label="Download Resume"
     >
       {/* Main floater button - Apple style */}
       <div className="flex items-center gap-3 px-6 py-4 bg-white text-black rounded-full shadow-2xl hover:scale-105 transition-smooth">
-        <Smartphone size={22} />
-        <span className="hidden sm:block font-semibold whitespace-nowrap">
-          Try my app
+        <Download size={22} />
+        <span className="font-semibold whitespace-nowrap">
+          Download Resume
         </span>
       </div>
-    </button>
+    </a>
   );
 }

@@ -538,7 +538,7 @@ function TimelineVariant() {
             </div>
             <div className="flex items-center gap-2 text-xs text-zinc-600">
               <span className="font-mono tabular-nums">{activeIndex + 1} / {CLIENTS.length}</span>
-              <span className="hidden sm:inline opacity-60">· swipe, trackpad, or ← → keys</span>
+              <span className="hidden sm:inline opacity-60 text-zinc-400">· swipe, trackpad, or ← → keys</span>
             </div>
           </div>
         </div>
