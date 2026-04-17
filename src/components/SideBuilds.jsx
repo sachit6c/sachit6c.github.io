@@ -7,14 +7,14 @@ const SideBuilds = () => {
   const builds = [
     {
       id: '64squares',
-      title: '64Squares — Chess Fantasy League',
-      context: 'Personal — Chess & Fantasy Sports',
+      title: '64Squares: Chess Fantasy League',
+      context: 'Personal · Chess & Fantasy Sports',
       description:
         'Real-time chess fantasy league with live scoring powered by 30-second Lichess Broadcasts PGN polling. Draft players, track results, compete in leagues.',
       stack: ['React', 'TypeScript', 'Supabase', 'PostgreSQL', 'chess.js', 'Python'],
       learnings: [
         'Fuzzy player name matching across 1000+ titled players (Chess.com + FIDE ratings) taught me that data quality is a product problem, not an engineering problem.',
-        'Two user types (commissioner managing leagues vs. players tracking scores) from one data model forced explicit permission boundaries from day one — helped me think more carefully about role-based access design.',
+        'Two user types (commissioner managing leagues vs. players tracking scores) from one data model forced explicit permission boundaries from day one, which made me think more carefully about role-based access design.',
       ],
       gradient: 'from-indigo-500 to-violet-500',
       links: { live: 'https://chess-fantasy.vercel.app/', github: null },
@@ -23,31 +23,31 @@ const SideBuilds = () => {
     {
       id: 'partner-pomodoro',
       title: 'Partner Pomodoro',
-      context: 'Personal — Productivity & Real-Time Collaboration',
+      context: 'Personal · Productivity & Real-Time Collaboration',
       description:
-        'A two-user collaborative Pomodoro timer with real-time sync via Supabase WebSocket subscriptions — no accounts required. Partners join by name, stay in sync live, and get completion alerts via synthesized Web Audio API chimes and native OS notifications.',
+        'A two-user collaborative Pomodoro timer with real-time sync via Supabase WebSocket subscriptions. No accounts required. Partners join by name, stay in sync live, and get completion alerts via synthesized Web Audio API chimes and native OS notifications.',
       stack: ['React', 'Supabase Realtime', 'Web Audio API', 'Notifications API', 'CSS clamp()'],
       learnings: [
-        'Designing for zero sign-up friction (name-only onboarding with Supabase RLS row isolation per partner) taught me that the biggest UX barrier is often the first step — every auth field you remove is a reason to stay.',
-        'Replacing setInterval with wall-clock diffing (Date.now() at 250ms polls) after discovering background tab throttling showed me that platform behavior is a product constraint, not a dev bug — and that timing bugs are invisible until production.',
+        'Designing for zero sign-up friction (name-only onboarding with Supabase RLS row isolation per partner) taught me that the biggest UX barrier is often the first step. Every auth field you remove is a reason to stay.',
+        'Replacing setInterval with wall-clock diffing (Date.now() at 250ms polls) after discovering background tab throttling showed me that platform behavior is a product constraint, not a dev bug, and that timing bugs are invisible until production.',
       ],
       gradient: 'from-teal-400 to-emerald-500',
       links: { live: 'https://rich-pomodoro.vercel.app/', github: null },
       status: 'Live',
     },
     {
-      id: 'f1-fantasy',
-      title: 'F1 Fantasy League',
-      context: 'Personal — Formula 1 & Fantasy Sports',
+      id: 'doomsday',
+      title: 'Doomsday: Algorithm Trainer',
+      context: 'Personal · Mental Math & Algorithms',
       description:
-        '27 seasons (2000–2026) of historical race data, head-to-head snake drafts, and a fully configurable points engine for position, pole, sprint, fastest lap, and penalties.',
-      stack: ['React', 'TypeScript', 'Vitest', 'Playwright', 'Vercel'],
+        'Practice Conway\'s Doomsday Algorithm to mentally calculate the day of the week for any date between 1600–2399. Four modes: quiz, step-by-step tutor, timed speed drill, and isolated sub-skill drills with streak tracking and personal bests.',
+      stack: ['JavaScript', 'CSS', 'HTML', 'localStorage', 'Vercel'],
       learnings: [
-        'Building an offline-first CSV data model with dynamic season switching (DataStore.setSeason()) taught me to design for data-access patterns before writing any UI — the schema drove the product.',
-        '80%+ unit test coverage with Playwright E2E suites covering draft flow and mobile/tablet/desktop responsiveness showed me how investment in test infrastructure pays off in shipping confidence.',
+        'Designing a progressive-disclosure flow (tutor → quiz → speed drill) taught me that onboarding is a product funnel: each mode exists to graduate users to the next, and skipping steps kills retention.',
+        'Decomposing one complex skill (full date calculation) into four isolated sub-drills (century anchor, year code, anchor date, day offset) showed me that the best way to teach (or onboard) is to let users practice pieces before the whole.',
       ],
-      gradient: 'from-red-500 to-orange-500',
-      links: { live: 'https://f1-fantasy-v1.vercel.app/', github: null },
+      gradient: 'from-amber-400 to-yellow-500',
+      links: { live: 'https://doomsday-algo.vercel.app/', github: null },
       status: 'Live',
     },
   ]

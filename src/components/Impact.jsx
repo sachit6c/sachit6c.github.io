@@ -5,21 +5,21 @@ export default function Impact() {
   const [gridRef, gridVisible] = useScrollAnimation()
   const metrics = [
     {
-      value: '26 squads',
+      value: '26 Scrum teams',
       label: 'Program Scale',
-      context: '185 members across 3 PI cycles — serving as Onsite Delivery Lead and orchestrating 335K budgeted hours.',
+      context: '185 members across multiple PI cycles, serving as Onsite Delivery Lead and orchestrating 335K budgeted hours.',
       domain: 'Deloitte · TRP / FIS Global Program',
     },
     {
       value: '91%',
       label: 'On-Time Delivery',
-      context: '91% on-time delivery across all 3 PI planning cycles — securing a $1.75M SOW extension.',
+      context: '91% on-time delivery year-over-year across PI planning cycles, securing a $1.75M SOW extension.',
       domain: 'Deloitte · Delivery Excellence',
     },
     {
       value: '319%',
       label: 'User Growth',
-      context: 'Led 2 high-performing pods delivering 11 major releases across 16 sprints — tripling the client user base.',
+      context: 'Led 2 high-performing pods delivering 11 major releases across 16 sprints, tripling the client user base.',
       domain: 'Deloitte · Pfizer Program',
     },
     {
@@ -41,7 +41,7 @@ export default function Impact() {
             The numbers I move
           </h2>
           <p className="text-xl sm:text-2xl text-zinc-400 max-w-3xl mx-auto">
-            8 years. Fortune 500. From GenAI pods to 26-squad delivery programs.
+            8 years. Fortune 500. From GenAI pods to 26-team delivery programs.
           </p>
         </div>
 

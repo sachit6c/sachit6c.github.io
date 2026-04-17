@@ -3,8 +3,8 @@ import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 export default function Hero() {
   const metrics = [
     { value: '8+ yrs', label: 'Deloitte Consulting', sub: 'Financial Services, Healthcare, Pharma' },
-    { value: '26 squads', label: 'Program Scale', sub: '185 members, 3 PI cycles' },
-    { value: '91%', label: 'On-Time Delivery', sub: 'Across 3 consecutive PI cycles' },
+    { value: '26 Scrum teams', label: 'Program Scale', sub: '185 members across multiple PIs' },
+    { value: '91%', label: 'On-Time Delivery', sub: 'Year-over-year across PI cycles' },
     { value: '$5M+', label: 'SOWs Won', sub: 'RFPs signed & competitive bids' },
   ];
 
@@ -46,7 +46,7 @@ export default function Hero() {
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.07] tracking-tight mb-6">
-          <span className="text-white">Delivery Driver.</span>
+          <span className="text-white">Product Leader.</span>
           <br />
           <span className="whitespace-nowrap text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Systems Thinker.</span>
           <br />

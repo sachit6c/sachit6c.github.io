@@ -10,7 +10,7 @@ const CaseStudies = () => {
       id: 'pfizer-genai',
       title: 'GenAI Product Owner: LLM-Powered Market Intelligence',
       company: 'Deloitte (Life Sciences)',
-      hook: 'Serving as PO across multiple Gen AI pods simultaneously — managing backlogs for LLM-powered market intelligence and pre-opportunity identification tools used across Pfizer.',
+      hook: 'Serving as PO across multiple Gen AI pods simultaneously, managing backlogs for LLM-powered market intelligence and pre-opportunity identification tools used across Pfizer.',
       metrics: [
         { value: 'Multi-pod', label: 'Concurrent PO' },
         { value: 'LLMs', label: 'Non-deterministic ACs' },
@@ -23,11 +23,11 @@ const CaseStudies = () => {
     },
     {
       id: 'trpfis-delivery',
-      title: '26-Squad Program: Delivery Leadership at Scale',
+      title: '26-Team Program: Delivery Leadership at Scale',
       company: 'Deloitte (Financial Services)',
-      hook: 'Onsite Delivery Lead for 26 squads and 185 members across 335K budgeted hours — orchestrating 3 PI planning cycles at 91% on-time delivery and securing a $1.75M SOW extension.',
+      hook: 'Onsite Delivery Lead for 26 Scrum teams and 185 members across 335K budgeted hours, orchestrating year-over-year PI planning at 91% on-time delivery and securing a $1.75M SOW extension.',
       metrics: [
-        { value: '26 squads', label: '185 members' },
+        { value: '26 teams', label: '185 members' },
         { value: '91%', label: 'On-time delivery' },
         { value: '$1.75M', label: 'SOW extension' }
       ],
@@ -40,7 +40,7 @@ const CaseStudies = () => {
       id: 'eli-lilly-po',
       title: 'Agile Product Ownership: Coaching & Velocity at Eli Lilly',
       company: 'Deloitte (Healthcare)',
-      hook: 'Product Owner and Agile coach across 3 concurrent Eli Lilly projects — 15% velocity increase through retrospective facilitation, burndown transparency, and pre-release bug-bash sessions.',
+      hook: 'Product Owner and Agile coach across 3 concurrent Eli Lilly projects, driving 15% velocity increase through retrospective facilitation, burndown transparency, and pre-release bug-bash sessions.',
       metrics: [
         { value: '+15%', label: 'Sprint velocity' },
         { value: '3 projects', label: 'Concurrent' },
@@ -87,7 +87,7 @@ const CaseStudies = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-white mb-1">AI Product Ownership (Life Sciences)</div>
-                  <div className="text-sm text-zinc-400">PO across multiple Gen AI pods — backlog management for LLM tools, acceptance criteria for non-deterministic outputs</div>
+                  <div className="text-sm text-zinc-400">PO across multiple Gen AI pods, handling backlog management for LLM tools, acceptance criteria for non-deterministic outputs</div>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -96,7 +96,7 @@ const CaseStudies = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-white mb-1">Scale Delivery (Financial Services)</div>
-                  <div className="text-sm text-zinc-400">26-squad program lead — PI planning, risk mitigation, $5M+ SOW portfolio, 91% on-time delivery</div>
+                  <div className="text-sm text-zinc-400">26-team program lead: PI planning, risk mitigation, $5M+ SOW portfolio, 91% on-time delivery</div>
                 </div>
               </div>
               <div className="flex gap-4">
@@ -105,12 +105,12 @@ const CaseStudies = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-white mb-1">Agile PO + Coaching (Healthcare)</div>
-                  <div className="text-sm text-zinc-400">Product Owner across 3 concurrent Eli Lilly projects — Agile coaching, retrospectives, 15% velocity increase</div>
+                  <div className="text-sm text-zinc-400">Product Owner across 3 concurrent Eli Lilly projects: Agile coaching, retrospectives, 15% velocity increase</div>
                 </div>
               </div>
             </div>
             <p className="text-zinc-400 text-sm mt-6 italic">
-              These stories showcase versatility: I can ship AI products (GenAI PO), lead at scale (26 squads), and coach teams to deliver—all essential for a senior PM or delivery leader role.
+              These stories showcase versatility: I can ship AI products (GenAI PO), lead at scale (26 Scrum teams), and coach teams to deliver, all essential for a senior PM or delivery leader role.
             </p>
           </div>
         </div>

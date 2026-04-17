@@ -32,7 +32,7 @@ const CLIENTS = [
     industry: 'Financial Services',
     brandColor: '#3DB54A',
     achievements: [
-      'Led 26 squads (185 members, 335K budgeted hours) across 3 complete PI planning cycles — 91% on-time delivery',
+      'Led 26 Scrum teams (185 members, 335K budgeted hours) across year-over-year PI planning cycles with 91% on-time delivery',
       'Secured a $1.75M SOW extension into 2026 through demonstrated program excellence and client satisfaction',
       'Implemented Jira automation saving 20+ hours/week per PM/PO; corrected a 30% hours-estimation gap improving margin predictability',
     ],
@@ -47,9 +47,9 @@ const CLIENTS = [
     industry: 'Life Sciences',
     brandColor: '#00AAFF',
     achievements: [
-      'Signed 2 RFPs worth $700K — outcompeted AWS in a head-to-head bid by uncovering critical overlooked issues',
+      'Signed 2 RFPs worth $700K, outcompeting AWS in a head-to-head bid by uncovering critical overlooked issues',
       'Led GenAI pods for Market Competitive Intelligence and Pre-Opportunity Identification across multiple LLMs',
-      'Tripled client user base across 11 major releases / 16 sprints — named "most visible team in the Pfizer program"',
+      'Tripled client user base across 11 major releases / 16 sprints, named "most visible team in the Pfizer program"',
     ],
     metric: { value: '3×', label: 'User Base Growth' },
   },
@@ -62,7 +62,7 @@ const CLIENTS = [
     industry: 'Healthcare',
     brandColor: '#FF4B4B',
     achievements: [
-      'Launched ConLog, LillyPlus & Snapshare (iOS & Android) — client called ConLog "the best app they had ever encountered"',
+      'Launched ConLog, LillyPlus & Snapshare (iOS & Android); client called ConLog "the best app they had ever encountered"',
       '319% user growth across 6 releases, including a client-record 2-week release cycle',
       'Won 3 Applause Awards for demo innovation, strategic excellence, and simultaneous MVP delivery',
     ],
@@ -125,21 +125,21 @@ const CLIENTS = [
 
 const METRICS = [
   {
-    value: '26 squads',
+    value: '26 Scrum teams',
     label: 'Program Scale',
-    context: '185 members across 3 PI cycles — Onsite Delivery Lead orchestrating 335K budgeted hours.',
+    context: '185 members across multiple PI cycles as Onsite Delivery Lead, orchestrating 335K budgeted hours.',
     domain: 'Deloitte · TRP / FIS Global',
   },
   {
     value: '91%',
     label: 'On-Time Delivery',
-    context: '91% on-time delivery across all 3 PI planning cycles — securing a $1.75M SOW extension.',
+    context: '91% on-time delivery year-over-year across PI planning cycles, securing a $1.75M SOW extension.',
     domain: 'Deloitte · Delivery Excellence',
   },
   {
     value: '319%',
     label: 'User Growth',
-    context: 'Led 2 pods delivering 11 major releases across 16 sprints — tripling the client user base.',
+    context: 'Led 2 pods delivering 11 major releases across 16 sprints, tripling the client user base.',
     domain: 'Deloitte · Pfizer',
   },
   {
@@ -200,7 +200,8 @@ function LogoMark({ id, color, className = '' }) {
 // TIMELINE — Horizontal interactive timeline carousel
 // =============================================================================
 function TimelineVariant() {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const displayClients = [...CLIENTS].reverse()
+  const [activeIndex, setActiveIndex] = useState(displayClients.length - 1)
   const trackRef = useRef(null)
   const swipeStartX = useRef(null)
   const wheelAccRef = useRef(0)
@@ -208,10 +209,10 @@ function TimelineVariant() {
   const [sectionRef, sectionVisible] = useScrollAnimation()
 
   const NODE_PX = 152
-  const client = CLIENTS[activeIndex]
+  const client = displayClients[activeIndex]
 
   const goTo = (idx) => {
-    const next = Math.max(0, Math.min(CLIENTS.length - 1, idx))
+    const next = Math.max(0, Math.min(displayClients.length - 1, idx))
     if (next === activeIndex) return
     setActiveIndex(next)
   }
@@ -230,7 +231,7 @@ function TimelineVariant() {
       wheelAccRef.current += e.deltaX
       if (Math.abs(wheelAccRef.current) > 40) {
         const dir = wheelAccRef.current > 0 ? 1 : -1
-        setActiveIndex(prev => Math.max(0, Math.min(CLIENTS.length - 1, prev + dir)))
+        setActiveIndex(prev => Math.max(0, Math.min(displayClients.length - 1, prev + dir)))
         wheelAccRef.current = 0
         wheelLockRef.current = true
         setTimeout(() => { wheelLockRef.current = false }, 550)
@@ -291,7 +292,7 @@ function TimelineVariant() {
         {/* Right arrow */}
         <button
           onClick={() => goTo(activeIndex + 1)}
-          disabled={activeIndex === CLIENTS.length - 1}
+          disabled={activeIndex === displayClients.length - 1}
           aria-label="Next client"
           className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center rounded-full border border-zinc-800 bg-black text-zinc-400 hover:text-white hover:border-zinc-600 hover:bg-zinc-900 transition-all duration-200 disabled:opacity-20 disabled:pointer-events-none"
         >
@@ -321,7 +322,7 @@ function TimelineVariant() {
           {/* Node row — fixed height so we can position elements relative to the line */}
           <div
             className="relative flex"
-            style={{ width: `${CLIENTS.length * NODE_PX}px`, height: '148px' }}
+            style={{ width: `${displayClients.length * NODE_PX}px`, height: '148px' }}
           >
             {/* Base timeline line at y=72 */}
             <div
@@ -336,14 +337,14 @@ function TimelineVariant() {
                 height: '4px',
                 left: `${NODE_PX / 2}px`,
                 width: `${Math.max(0, activeIndex) * NODE_PX}px`,
-                background: `linear-gradient(to right, ${CLIENTS[0].brandColor}90, ${CLIENTS[activeIndex].brandColor})`,
+                background: `linear-gradient(to right, ${displayClients[0].brandColor}90, ${displayClients[activeIndex].brandColor})`,
                 borderRadius: '2px',
                 transition: 'width 0.45s cubic-bezier(0.4,0,0.2,1)',
                 zIndex: 1,
               }}
             />
 
-            {CLIENTS.map((c, i) => {
+            {displayClients.map((c, i) => {
               const isActive = i === activeIndex
               const isPast = i < activeIndex
               return (
@@ -351,7 +352,7 @@ function TimelineVariant() {
                   key={c.id}
                   onClick={() => goTo(i)}
                   aria-pressed={isActive}
-                  aria-label={`${c.name} — ${c.period}`}
+                  aria-label={`${c.name}, ${c.period}`}
                   className="relative flex-shrink-0 focus:outline-none group"
                   style={{ width: `${NODE_PX}px`, height: '148px' }}
                 >
@@ -459,7 +460,7 @@ function TimelineVariant() {
 
       {/* ── Pill progress indicator ── */}
       <div className="flex items-center justify-center gap-1.5 mb-10">
-        {CLIENTS.map((c, i) => (
+        {displayClients.map((c, i) => (
           <button
             key={c.id}
             onClick={() => goTo(i)}
@@ -468,7 +469,7 @@ function TimelineVariant() {
             style={{
               height: '5px',
               width: i === activeIndex ? '22px' : '5px',
-              backgroundColor: i === activeIndex ? client.brandColor : `${CLIENTS[i].brandColor}55`,
+              backgroundColor: i === activeIndex ? client.brandColor : `${displayClients[i].brandColor}55`,
             }}
           />
         ))}
@@ -537,7 +538,7 @@ function TimelineVariant() {
               <span className="text-xs font-medium opacity-70">{client.metric.label}</span>
             </div>
             <div className="flex items-center gap-2 text-xs text-zinc-600">
-              <span className="font-mono tabular-nums">{activeIndex + 1} / {CLIENTS.length}</span>
+              <span className="font-mono tabular-nums">{activeIndex + 1} / {displayClients.length}</span>
               <span className="hidden sm:inline opacity-60 text-zinc-400">· swipe, trackpad, or ← → keys</span>
             </div>
           </div>
@@ -616,7 +617,7 @@ export default function Experience() {
           <h3 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">
             The numbers I move
           </h3>
-          <p className="text-zinc-500 text-lg">From GenAI pods to 26-squad delivery programs.</p>
+          <p className="text-zinc-500 text-lg">From GenAI pods to 26-team delivery programs.</p>
         </div>
 
         <div

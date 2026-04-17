@@ -101,9 +101,15 @@ export default function Navigation() {
       released = true;
       clickLockRef.current = false;
       window.removeEventListener('scrollend', release);
-      // Sync highlight with where the scroll actually settled.
-      const active = getActiveFromVisible();
-      if (active) setActiveSection(active);
+      // After scroll settles, prefer the clicked section if it's visible
+      // in the observation zone. Fall back to heuristic only if the target
+      // section scrolled out of view (shouldn't happen with scroll-mt).
+      if (visibleSectionsRef.current.has(id)) {
+        setActiveSection(id);
+      } else {
+        const active = getActiveFromVisible();
+        if (active) setActiveSection(active);
+      }
     };
 
     window.addEventListener('scrollend', release, { once: true });
