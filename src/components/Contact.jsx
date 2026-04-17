@@ -38,7 +38,7 @@ export default function Contact() {
                 </div>
                 <div className="flex items-start gap-3">
                   <CheckCircle2 size={20} className="text-emerald-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-zinc-200"><strong className="text-white">Platform/Delivery:</strong> Large-scale program delivery, cross-functional leadership across 10+ Scrum teams</span>
+                  <span className="text-zinc-200"><strong className="text-white">Platform/Delivery:</strong> Large-scale program delivery, cross-functional leadership across 10+ squads</span>
                 </div>
               </div>
             </div>

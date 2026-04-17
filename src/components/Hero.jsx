@@ -3,7 +3,7 @@ import { ArrowRight, Calendar, MapPin } from 'lucide-react';
 export default function Hero() {
   const metrics = [
     { value: '8+ yrs', label: 'Deloitte Consulting', sub: 'Financial Services, Healthcare, Pharma' },
-    { value: '26 Scrum teams', label: 'Program Scale', sub: '185 members across multiple PIs' },
+    { value: '26 squads', label: 'Program Scale', sub: '185 members across multiple PIs' },
     { value: '91%', label: 'On-Time Delivery', sub: 'Year-over-year across PI cycles' },
     { value: '$5M+', label: 'SOWs Won', sub: 'RFPs signed & competitive bids' },
   ];

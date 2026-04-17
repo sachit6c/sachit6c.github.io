@@ -32,7 +32,7 @@ const CLIENTS = [
     industry: 'Financial Services',
     brandColor: '#3DB54A',
     achievements: [
-      'Led 26 Scrum teams (185 members, 335K budgeted hours) across year-over-year PI planning cycles with 91% on-time delivery',
+      'Led 26 squads (185 members, 335K budgeted hours) across year-over-year PI planning cycles with 91% on-time delivery',
       'Secured a $1.75M SOW extension into 2026 through demonstrated program excellence and client satisfaction',
       'Implemented Jira automation saving 20+ hours/week per PM/PO; corrected a 30% hours-estimation gap improving margin predictability',
     ],
@@ -125,7 +125,7 @@ const CLIENTS = [
 
 const METRICS = [
   {
-    value: '26 Scrum teams',
+    value: '26 squads',
     label: 'Program Scale',
     context: '185 members across multiple PI cycles as Onsite Delivery Lead, orchestrating 335K budgeted hours.',
     domain: 'Deloitte · TRP / FIS Global',
@@ -617,7 +617,7 @@ export default function Experience() {
           <h3 className="text-3xl sm:text-4xl font-semibold tracking-tight mb-3">
             The numbers I move
           </h3>
-          <p className="text-zinc-500 text-lg">From GenAI pods to 26-team delivery programs.</p>
+          <p className="text-zinc-500 text-lg">From GenAI pods to 26-squad delivery programs.</p>
         </div>
 
         <div

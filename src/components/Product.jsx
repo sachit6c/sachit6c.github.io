@@ -58,7 +58,7 @@ export default function Product() {
               <span className="text-base group-hover:scale-110 transition-transform inline-block">☀️</span>
               <div>
                 <p className="text-zinc-200 font-semibold leading-tight group-hover:text-white transition-colors">Senior Consultant · Deloitte</p>
-                <p className="text-zinc-500 text-xs mt-0.5 group-hover:text-zinc-400 transition-colors">26 Scrum teams, Fortune 500 clients ↗</p>
+                <p className="text-zinc-500 text-xs mt-0.5 group-hover:text-zinc-400 transition-colors">26 squads, Fortune 500 clients ↗</p>
               </div>
             </a>
             <a

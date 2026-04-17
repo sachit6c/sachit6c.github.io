@@ -5,7 +5,7 @@ export default function Impact() {
   const [gridRef, gridVisible] = useScrollAnimation()
   const metrics = [
     {
-      value: '26 Scrum teams',
+      value: '26 squads',
       label: 'Program Scale',
       context: '185 members across multiple PI cycles, serving as Onsite Delivery Lead and orchestrating 335K budgeted hours.',
       domain: 'Deloitte · TRP / FIS Global Program',
@@ -41,7 +41,7 @@ export default function Impact() {
             The numbers I move
           </h2>
           <p className="text-xl sm:text-2xl text-zinc-400 max-w-3xl mx-auto">
-            8 years. Fortune 500. From GenAI pods to 26-team delivery programs.
+            8 years. Fortune 500. From GenAI pods to 26-squad delivery programs.
           </p>
         </div>
 
